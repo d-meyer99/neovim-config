@@ -1,34 +1,43 @@
-local opt = vim.opt
-
 -- Settings
-opt.backup = false
-opt.cmdheight = 2
-opt.encoding = "utf-8"
-opt.relativenumber = true
-opt.number = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.swapfile = false
-opt.backspace = "2"
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.showtabline = 2
-opt.termguicolors = true
-opt.shiftwidth = 4
-opt.expandtab = false
-opt.listchars = { space = '*', tab = '>-' , trail = '~'}
-opt.list = true
-opt.signcolumn = "yes"
-opt.textwidth = 85
-opt.colorcolumn = "86"
-opt.wrap = true
-opt.linebreak = true
-opt.foldmethod = "syntax"
-opt.foldlevelstart = 1
-opt.shell = "powershell.exe"
-opt.smartindent = true
-opt.splitbelow = true
-opt.splitright = true
-opt.clipboard = "unnamedplus"
-opt.scrolloff = 10
+local options ={
+	backup = false,
+	cmdheight = 2,
+	encoding = "utf-8",
+	relativenumber = true,
+	number = true,
+	ignorecase = true,
+	smartcase = true,
+	swapfile = false,
+	backspace = "2",
+	tabstop = 4,
+	softtabstop = 4,
+	showtabline = 2,
+	termguicolors = true,
+	shiftwidth = 4,
+	expandtab = false,
+	listchars = { space = '*', tab = '>-' , trail = '~'},
+	list = true,
+	signcolumn = "yes",
+	textwidth = 85,
+	colorcolumn = "86",
+	wrap = true,
+	linebreak = true,
+	foldmethod = "syntax",
+	foldlevelstart = 1,
+	shell = "powershell.exe",
+	smartindent = true,
+	splitbelow = true,
+	splitright = true,
+	clipboard = "unnamedplus",
+	scrolloff = 10,
+	sidescrolloff = 8,
+	cursorline = true
+}
+
+for k, v in pairs(options) do
+	vim.opt[k] = v
+end
+
+vim.cmd ("set iskeyword+=-")
+vim.cmd ("set ww+=h,l")
 
