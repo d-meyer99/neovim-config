@@ -3,5 +3,5 @@
 
 2. Remove the current nvim config directory.
 
-3. Clone this directory into the nvim directory:
+3. Clone this directory into the nvim directory:\n
 	`git clone https://github.com/d-meyer99/neovim-config.git $env:LOCALAPPDATA/nvim`
