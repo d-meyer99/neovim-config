@@ -31,7 +31,7 @@ local options ={
 	clipboard = "unnamedplus",
 	scrolloff = 10,
 	sidescrolloff = 8,
-	cursorline = true
+	cursorline = true,
 }
 
 for k, v in pairs(options) do

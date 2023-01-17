@@ -25,8 +25,22 @@ packer.startup(function(use)
 	-- Gruvbox material theme
 	use 'sainnhe/gruvbox-material'
 
-	--
+	-- Status Line
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' }
+	}
+	
+	-- Buffer Line
+	use {
+		'akinsho/bufferline.nvim', tag = "v3.*",
+		requires = { 'nvim-tree/nvim-web-devicons' }
+	}
 
+	-- Colorizer
+	use 'norcalli/nvim-colorizer.lua'
 
+	-- Comments
+	use 'numToStr/Comment.nvim'
 end
 )
