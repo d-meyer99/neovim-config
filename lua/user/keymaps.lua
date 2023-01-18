@@ -14,7 +14,7 @@ function nnoremap(new, old)
 	keymap("n", new, old, opts)
 end
 
-nnoremap("<F5>", "<C-l>")
+nnoremap("<F5>", "<C-l>:noh<CR>")
 
 -- Split navigation with <C-[hjkl]>
 nnoremap("<C-h>", "<C-w>h")
@@ -28,6 +28,12 @@ nnoremap("<C-Down>", ":resize +2<CR>")
 nnoremap("<C-Left>", ":vertical resize -2<CR>")
 nnoremap("<C-Right>", ":vertical resize +2<CR>")
 
+-- Close split with <C-q>
+nnoremap("<C-q>", "<C-w>q")
+
 -- Move buffers with <Shift-[hl]>
 nnoremap("<S-h>", ":bp<CR>")
 nnoremap("<S-l>", ":bn<CR>")
+
+-- Close buffer with <Shift-q>
+nnoremap("<S-q>", ":bd<CR>")
