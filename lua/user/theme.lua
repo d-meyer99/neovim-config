@@ -1,6 +1,6 @@
 local g = vim.g
-
 vim.opt.background = "dark"
+
 g.gruvbox_material_transparent_background = 2
 g.gruvbox_material_disable_italic_comment = 1
 g.gruvbox_material_foreground = 'material'

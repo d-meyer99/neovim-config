@@ -1,46 +1,79 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 -- ensure packer is installed
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-	execute 'packadd packer.nvim'
+	PACKER_BOOTSTRAP = fn.system{
+		"git",
+		"clone",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path
+	}
+	vim.cmd [[packadd packer.nvim]]
 end
 
-vim.cmd('packadd packer.nvim')
+local status_ok, packer = pcall(require, 'packer')
+if not status_ok then
+	return
+end
 
-local packer = require('packer')
-local util = require('packer.util')
+-- Reload neovim every time the plugins.lua file is saved
+vim.cmd [[
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	augroup end
+]]
 
-packer.init({
-	package_root = util.join_paths(fn.stdpath('data'), 'site', 'pack')
-})
+packer.init{
+	display = {
+		open_fn = function()
+			return require('packer.util').float { border = 'rounded' }
+		end,
+	},
+}
 
--- startup and configure plugins
+-- Startup and configure plugins
 packer.startup(function(use)
-	-- Packer itself
-	use 'wbthomason/packer.nvim'
+	use 'wbthomason/packer.nvim'			-- Packer itself
+	use 'nvim-lua/popup.nvim'				-- Popup API from vim in Neovim
+	use 'nvim-lua/plenary.nvim'				-- Lua functions used by many plugins
 
-	-- Gruvbox material theme
-	use 'sainnhe/gruvbox-material'
+	use 'sainnhe/gruvbox-material'			-- Gruvbox material theme
+	use 'norcalli/nvim-colorizer.lua'		-- Colorizer
+	use 'numToStr/Comment.nvim'				-- Comments
 
-	-- Status Line
-	use {
+	use {									-- Status Line
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' }
 	}
-	
-	-- Buffer Line
-	use {
-		'akinsho/bufferline.nvim', tag = "v3.*",
+
+	use {									-- Buffer Line
+		'akinsho/bufferline.nvim',
+		tag = "v3.*",
 		requires = { 'nvim-tree/nvim-web-devicons' }
 	}
 
-	-- Colorizer
-	use 'norcalli/nvim-colorizer.lua'
+	-- Cmp plugins
+	use 'hrsh7th/nvim-cmp'					-- Completion
+	use 'hrsh7th/cmp-buffer'				-- Buffer completions
+	use 'hrsh7th/cmp-path'					-- Path completion
+	use 'hrsh7th/cmp-cmdline'				-- Commandline completions
+	use 'hrsh7th/cmp-nvim-lsp'				-- LSP completions
+	use 'saadparwaiz1/cmp_luasnip'			-- Snippet completions
 
-	-- Comments
-	use 'numToStr/Comment.nvim'
+	-- Snippets
+	use 'L3MON4D3/LuaSnip'					-- Snippet Engine
+	use 'rafamadriz/friendly-snippets'		-- Snippet Library
+
+	-- LSP
+	use 'neovim/nvim-lspconfig'				-- LSP
+	use 'williamboman/nvim-lsp-installer'	-- Language server installer
+
+	-- Auto set config after cloning packer
+	-- Keep this after all plugins
+	if PACKER_BOOTSTRAP then
+		require('packer').sync()
+	end
 end
 )

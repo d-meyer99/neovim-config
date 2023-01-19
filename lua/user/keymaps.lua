@@ -37,3 +37,6 @@ nnoremap("<S-l>", ":bn<CR>")
 
 -- Close buffer with <Shift-q>
 nnoremap("<S-q>", ":bd<CR>")
+
+-- Visual Block mode with <C-z>
+nnoremap("<C-z>", "<C-q>")
