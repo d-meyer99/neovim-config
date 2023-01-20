@@ -20,6 +20,11 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", sumneko_lua, opts)
 	end
 
+	if server.name == 'omnisharp' then
+		local omnisharp = require("user.lsp.settings.omnisharp")
+		opts = vim.tbl_deep_extend("force", omnisharp, opts)
+	end
+
 	-- This setup() fuction is exactly the same as lspconfig's setup function.
 	server:setup(opts)
 end)
