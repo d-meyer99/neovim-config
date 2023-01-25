@@ -1,9 +1,9 @@
 local fn = vim.fn
 
 -- ensure packer is installed
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system{
+	PACKER_BOOTSTRAP = fn.system {
 		"git",
 		"clone",
 		"https://github.com/wbthomason/packer.nvim",
@@ -25,7 +25,7 @@ vim.cmd [[
 	augroup end
 ]]
 
-packer.init{
+packer.init {
 	display = {
 		open_fn = function()
 			return require('packer.util').float { border = 'rounded' }
@@ -35,40 +35,39 @@ packer.init{
 
 -- Startup and configure plugins
 packer.startup(function(use)
-	use 'wbthomason/packer.nvim'			-- Packer itself
-	use 'nvim-lua/popup.nvim'				-- Popup API from vim in Neovim
-	use 'nvim-lua/plenary.nvim'				-- Lua functions used by many plugins
+	use 'wbthomason/packer.nvim' -- Packer itself
+	use 'nvim-lua/popup.nvim' -- Popup API from vim in Neovim
+	use 'nvim-lua/plenary.nvim' -- Lua functions used by many plugins
 
-	use 'sainnhe/gruvbox-material'			-- Gruvbox material theme
-	use 'norcalli/nvim-colorizer.lua'		-- Colorizer
-	use 'numToStr/Comment.nvim'				-- Comments
+	use 'sainnhe/gruvbox-material' -- Gruvbox material theme
+	use 'norcalli/nvim-colorizer.lua' -- Colorizer
+	use 'numToStr/Comment.nvim' -- Comments
 
-	use {									-- Status Line
+	use { -- Status Line
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons' }
 	}
 
-	use {									-- Buffer Line
+	use { -- Buffer Line
 		'akinsho/bufferline.nvim',
 		tag = "v3.*",
 		requires = { 'nvim-tree/nvim-web-devicons' }
 	}
 
 	-- Cmp plugins
-	use 'hrsh7th/nvim-cmp'					-- Completion
-	use 'hrsh7th/cmp-buffer'				-- Buffer completions
-	use 'hrsh7th/cmp-path'					-- Path completion
-	use 'hrsh7th/cmp-cmdline'				-- Commandline completions
-	use 'hrsh7th/cmp-nvim-lsp'				-- LSP completions
-	use 'saadparwaiz1/cmp_luasnip'			-- Snippet completions
+	use 'hrsh7th/nvim-cmp' -- Completion
+	use 'hrsh7th/cmp-buffer' -- Buffer completions
+	use 'hrsh7th/cmp-path' -- Path completion
+	use 'hrsh7th/cmp-cmdline' -- Commandline completions
+	use 'hrsh7th/cmp-nvim-lsp' -- LSP completions
+	use 'saadparwaiz1/cmp_luasnip' -- Snippet completions
 
 	-- Snippets
-	use 'L3MON4D3/LuaSnip'					-- Snippet Engine
-	use 'rafamadriz/friendly-snippets'		-- Snippet Library
+	use 'L3MON4D3/LuaSnip' -- Snippet Engine
+	use 'rafamadriz/friendly-snippets' -- Snippet Library
 
 	-- LSP
-	use 'neovim/nvim-lspconfig'				-- LSP
-	use 'williamboman/nvim-lsp-installer'	-- Language server installer
+	use 'neovim/nvim-lspconfig' -- LSP
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
