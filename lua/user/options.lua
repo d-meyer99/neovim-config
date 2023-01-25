@@ -4,7 +4,7 @@ local options = {
 	number = true, -- Show line numbers.
 	relativenumber = true, -- Show line numbers relative to current line.
 	ignorecase = true, -- Ignore case in search patterns.
-	smartcase = true, -- Don't ignore case if search contains uppercase.
+	smartcase = true, -- Don"t ignore case if search contains uppercase.
 	swapfile = false, -- Disable swapfiles.
 	backspace = "2", -- Allow backspace over autoindent, eol and start.
 	tabstop = 4, -- Number of spaces that a tab uses.
@@ -14,9 +14,9 @@ local options = {
 	shiftwidth = 4, -- Number of spaces to use for auto indent.
 	expandtab = false, -- Do not replace tabs with spaces.
 	listchars = { -- Show whitespace configuration list.
-		space = '*', -- Show spaces as '*'.
-		tab = '>-', -- Show tabs as '>---'.
-		trail = '~' }, -- Show trailing spaces as '~'.
+		space = "*", -- Show spaces as "*".
+		tab = ">-", -- Show tabs as ">---".
+		trail = "~" }, -- Show trailing spaces as "~".
 	list = true, -- Show whitespace.
 	signcolumn = "yes", -- Always show sign column.
 	textwidth = 85, -- Set max text width to 85 characters.
@@ -24,6 +24,7 @@ local options = {
 	wrap = true, -- Wrap text.
 	linebreak = true, -- Wrap at logical place.
 	foldmethod = "syntax", -- Use syntax to create folds.
+	foldminlines = 3,
 	foldlevelstart = 2, -- On startup, open 2 outer levels of folds.
 	shell = "powershell.exe", -- Use powershell as the neovim terminal shell.
 	smartindent = true, -- Use smart autoindenting.
@@ -40,6 +41,6 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.cmd("set iskeyword+=-") -- Set '-' to be treated as part of a word.
+vim.cmd("set iskeyword+=-") -- Set "-" to be treated as part of a word.
 vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 vim.cmd("set formatoptions-=cro") -- Stop vim from inserting comment on new line.

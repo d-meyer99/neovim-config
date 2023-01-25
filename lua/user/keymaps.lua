@@ -10,7 +10,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Normal mode remaps
-function nnoremap(new, old)
+local function nnoremap(new, old)
 	keymap("n", new, old, opts)
 end
 
@@ -40,3 +40,23 @@ nnoremap("<S-q>", ":bd<CR>")
 
 -- Visual Block mode with <C-z>
 nnoremap("<C-z>", "<C-q>")
+
+-- gb to go back
+nnoremap("gu", "<C-t>")
+
+-- Terminal --
+-- Open terminal in a horizontal split using <Alt-t>
+nnoremap("<M-t>", "<C-w>s<C-w>J:resize -8<CR>:terminal<CR>:setlocal nonumber norelativenumber signcolumn=no<CR>i")
+-- <S-q> to kill terminal
+keymap("t", "<S-q>", "<C-\\><C-N>:bd!<CR>", term_opts)
+
+-- Better terminal navigation
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- Telescope keymaps
+keymap("n", "<leader>f","<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
+keymap("n", "gr","<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown())<CR>", opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
