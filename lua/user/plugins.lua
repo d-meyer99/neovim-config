@@ -90,6 +90,12 @@ packer.startup(function(use)
 	}
 	use "mrjones2014/nvim-ts-rainbow"
 
+	-- Nvim Tree
+	use{
+		"nvim-tree/nvim-tree.lua",
+		tag = "nightly"
+	}
+
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
 	if PACKER_BOOTSTRAP then
