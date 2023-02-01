@@ -43,4 +43,6 @@ end
 
 vim.cmd("set iskeyword+=-") -- Set "-" to be treated as part of a word.
 vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
-vim.cmd("set formatoptions-=cro") -- Stop vim from inserting comment on new line.
+
+-- Do not automatically insert comments on new line after a comment.
+vim.cmd("autocmd FileType * setlocal formatoptions-=cro")

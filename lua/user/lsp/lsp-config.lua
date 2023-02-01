@@ -30,3 +30,5 @@ lsp_config.tsserver.setup(default_opts)
 -- OmniSharp
 local omnisharp_opts = add_opts(require("user.lsp.settings.omnisharp"))
 lsp_config.omnisharp.setup(omnisharp_opts)
+
+-- lsp_config.csharp_ls.setup(default_opts)

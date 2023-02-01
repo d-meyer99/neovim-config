@@ -38,6 +38,7 @@ packer.startup(function(use)
 	use "wbthomason/packer.nvim" -- Packer itself
 	use "nvim-lua/popup.nvim" -- Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Lua functions used by many plugins
+	use "windwp/nvim-autopairs" -- Autopairs
 
 	use "sainnhe/gruvbox-material" -- Gruvbox material theme
 	use "norcalli/nvim-colorizer.lua" -- Colorizer
@@ -81,6 +82,13 @@ packer.startup(function(use)
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
 	use "nvim-telescope/telescope-media-files.nvim"
+
+	-- Treesitter
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	}
+	use "mrjones2014/nvim-ts-rainbow"
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
