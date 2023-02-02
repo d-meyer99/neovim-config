@@ -75,6 +75,7 @@ packer.startup(function(use)
 			"williamboman/mason-lspconfig.nvim"
 		}
 	}
+	use "jose-elias-alvarez/null-ls.nvim"
 
 	--Razor syntax highlighting
 	use "jlcrochet/vim-razor"
@@ -89,6 +90,12 @@ packer.startup(function(use)
 		run = ":TSUpdate",
 	}
 	use "mrjones2014/nvim-ts-rainbow"
+
+	-- Nvim Tree
+	use {
+		"nvim-tree/nvim-tree.lua",
+		tag = "nightly"
+	}
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
