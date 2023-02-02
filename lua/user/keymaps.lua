@@ -58,5 +58,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope keymaps
 keymap("n", "<leader>f","<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
+keymap("n", "<leader>a","<cmd>lua require'telescope.builtin'.git_files()<CR>", opts)
+keymap("n", "<leader>b","<cmd>lua require'telescope.builtin'.buffers()<CR>", opts)
 keymap("n", "gr","<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown())<CR>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
