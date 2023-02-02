@@ -75,6 +75,7 @@ packer.startup(function(use)
 			"williamboman/mason-lspconfig.nvim"
 		}
 	}
+	use "jose-elias-alvarez/null-ls.nvim"
 
 	--Razor syntax highlighting
 	use "jlcrochet/vim-razor"
@@ -91,7 +92,7 @@ packer.startup(function(use)
 	use "mrjones2014/nvim-ts-rainbow"
 
 	-- Nvim Tree
-	use{
+	use {
 		"nvim-tree/nvim-tree.lua",
 		tag = "nightly"
 	}
