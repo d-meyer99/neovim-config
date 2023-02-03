@@ -1,4 +1,4 @@
-local opts ={ noremap = true, silent = true }
+local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten keymap function name
@@ -57,9 +57,17 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope keymaps
-keymap("n", "<leader>f","<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
-keymap("n", "gr","<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown())<CR>", opts)
+keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
+keymap(
+	"n",
+	"gr",
+	"<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown())<CR>",
+	opts
+)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- NvimTree
 nnoremap("<F2>", ":NvimTreeToggle<CR>")
+
+-- Template
+nnoremap("<leader>t", ":Template ")
