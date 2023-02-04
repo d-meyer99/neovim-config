@@ -39,6 +39,7 @@ packer.startup(function(use)
 	use("nvim-lua/popup.nvim") -- Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Lua functions used by many plugins
 	use("windwp/nvim-autopairs") -- Autopairs
+	use("akinsho/toggleterm.nvim") -- ToggleTerm
 
 	use("sainnhe/gruvbox-material") -- Gruvbox material theme
 	use("norcalli/nvim-colorizer.lua") -- Colorizer
@@ -97,7 +98,11 @@ packer.startup(function(use)
 		tag = "nightly",
 	})
 
+	-- Templates
 	use("glepnir/template.nvim")
+
+	-- Folds
+	use("anuvyklack/pretty-fold.nvim")
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins

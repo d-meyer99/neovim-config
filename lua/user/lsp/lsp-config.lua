@@ -31,4 +31,6 @@ lsp_config.tsserver.setup(default_opts)
 local omnisharp_opts = add_opts(require("user.lsp.settings.omnisharp"))
 lsp_config.omnisharp.setup(omnisharp_opts)
 
--- lsp_config.csharp_ls.setup(default_opts)
+-- RustAnalyzer
+local rust_analyzer_opts = add_opts(require("user.lsp.settings.rust_analyzer"))
+lsp_config.rust_analyzer.setup(rust_analyzer_opts)

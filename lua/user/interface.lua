@@ -21,7 +21,7 @@ else
 	theme = "gruvbox-material"
 end
 
-lualine.setup{
+lualine.setup({
 	options = {
 		globalstatus = true,
 		icons_enabled = true,
@@ -38,7 +38,7 @@ lualine.setup{
 			statusline = 1000,
 			tabline = 1000,
 			winbar = 1000,
-		}
+		},
 	},
 	sections = {
 		lualine_a = { "mode" },
@@ -46,7 +46,7 @@ lualine.setup{
 		lualine_c = { "filename" },
 		lualine_x = { "encoding", "progress" },
 		lualine_y = { "os.date('%a %d %b %Y')" },
-		lualine_z = { "os.date('%H:%M')" }
+		lualine_z = { "os.date('%H:%M')" },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -54,15 +54,12 @@ lualine.setup{
 		lualine_c = { "filename" },
 		lualine_x = { "location" },
 		lualine_y = {},
-		lualine_z = {}
+		lualine_z = {},
 	},
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {}
-}
-
--- Bufferline
-require("bufferline").setup()
+	extensions = {},
+})
 
 require("colorizer").setup()

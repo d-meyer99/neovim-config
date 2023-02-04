@@ -10,6 +10,7 @@ null_ls.setup({
 	sources = {
 		formatting.stylua,
 		formatting.csharpier,
+		formatting.rustfmt,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
