@@ -34,3 +34,6 @@ lsp_config.omnisharp.setup(omnisharp_opts)
 -- RustAnalyzer
 local rust_analyzer_opts = add_opts(require("user.lsp.settings.rust_analyzer"))
 lsp_config.rust_analyzer.setup(rust_analyzer_opts)
+
+-- Powershell
+lsp_config.powershell_es.setup(default_opts)

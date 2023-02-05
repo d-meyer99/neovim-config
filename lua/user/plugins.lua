@@ -104,6 +104,9 @@ packer.startup(function(use)
 	-- Folds
 	use("anuvyklack/pretty-fold.nvim")
 
+	-- Git
+	use("lewis6991/gitsigns.nvim")
+
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
 	if PACKER_BOOTSTRAP then

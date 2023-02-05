@@ -16,6 +16,7 @@ require("user.nvimtree")
 require("user.null_ls")
 require("user.template")
 require("user.toggleterm")
+require("user.gitsigns")
 
 -- TODO
 -- gitsigns?
