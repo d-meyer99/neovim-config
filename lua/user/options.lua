@@ -1,7 +1,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.rust_recommended_style = 0
-vim.g.rust_fold = 2
+vim.g.rust_fold = 1
 
 -- Options
 local options = {

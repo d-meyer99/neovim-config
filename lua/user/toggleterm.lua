@@ -39,6 +39,12 @@ function _NTOP_TOGGLE()
 	ntop:toggle()
 end
 
+local ncspot = Terminal:new({ cmd = "ncspot", hidden = true })
+
+function _NCSPOT_TOGGLE()
+	ncspot:toggle()
+end
+
 local opts = { noremap = true, silent = true }
 
 -- Shorten keymap function name
@@ -51,3 +57,4 @@ end
 
 nnoremap("<M-g>", ":lua _LAZYGIT_TOGGLE()<CR>")
 nnoremap("<M-n>", ":lua _NTOP_TOGGLE()<CR>")
+nnoremap("<M-s>", ":lua _NCSPOT_TOGGLE()<CR>")
