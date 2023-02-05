@@ -4,30 +4,13 @@ if not lualine_status_ok then
 	return
 end
 
-local theme
-
-local status_ok, custom_gruvbox = pcall(require, "lualine.themes.gruvbox-material")
-if status_ok then
-	custom_gruvbox.normal.a.bg = "#aa9267"
-	custom_gruvbox.normal.c.bg = "#543937"
-	custom_gruvbox.insert.c.bg = "#543937"
-	custom_gruvbox.visual.c.bg = "#543937"
-	custom_gruvbox.command.c.bg = "#543937"
-	custom_gruvbox.terminal.c.bg = "#543937"
-	custom_gruvbox.replace.c.bg = "#543937"
-
-	theme = custom_gruvbox
-else
-	theme = "gruvbox-material"
-end
-
 lualine.setup({
 	options = {
 		globalstatus = true,
 		icons_enabled = true,
-		theme = theme,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		theme = "auto",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},

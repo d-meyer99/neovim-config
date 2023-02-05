@@ -42,6 +42,7 @@ packer.startup(function(use)
 	use("akinsho/toggleterm.nvim") -- ToggleTerm
 
 	use("sainnhe/gruvbox-material") -- Gruvbox material theme
+	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua") -- Colorizer
 	use("numToStr/Comment.nvim") -- Comments
 
