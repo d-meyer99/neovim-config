@@ -1,3 +1,3 @@
 return {
-	root_dir = require('lspconfig').util.root_pattern('*.sln')
+	root_dir = require("lspconfig").util.root_pattern("*.sln"),
 }

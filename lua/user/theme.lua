@@ -12,7 +12,7 @@ g.gruvbox_material_better_performance = 1
 g.gruvbox_material_ui_contrast = "high"
 g.gruvbox_material_diagnostic_line_highlight = 1
 g.gruvbox_material_colors_override = {
-	bg2 = {"#543937", "52"},
-	red = {"#bb88cc", "182"},
+	bg2 = { "#543937", "52" },
+	red = { "#bb88bb", "182" },
 }
 vim.cmd("colorscheme gruvbox-material")

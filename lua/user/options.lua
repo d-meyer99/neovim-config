@@ -19,11 +19,12 @@ local options = {
 	listchars = { -- Show whitespace configuration list.
 		space = "*", -- Show spaces as "*".
 		tab = ">-", -- Show tabs as ">---".
-		trail = "~" }, -- Show trailing spaces as "~".
+		trail = "~",
+	}, -- Show trailing spaces as "~".
 	list = true, -- Show whitespace.
 	signcolumn = "yes", -- Always show sign column.
-	textwidth = 85, -- Set max text width to 85 characters.
-	colorcolumn = "86", -- Show column 86 as colored.
+	textwidth = 100, -- Set max text width to 100 characters.
+	colorcolumn = "101", -- Show column 101 as colored.
 	wrap = true, -- Wrap text.
 	linebreak = true, -- Wrap at logical place.
 	foldmethod = "syntax", -- Use syntax to create folds.
