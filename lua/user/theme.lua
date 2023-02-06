@@ -1,18 +1,49 @@
-local g = vim.g
-vim.opt.background = "dark"
+local status_ok, theme = pcall(require, "catppuccin")
+if not status_ok then
+	return
+end
 
-g.gruvbox_material_transparent_background = 2
-g.gruvbox_material_disable_italic_comment = 1
-g.gruvbox_material_foreground = "material"
-g.gruvbox_material_background = "hard"
-g.gruvbox_material_transparent_background = 2
-g.gruvbox_material_dim_inactive_window = 1
-g.gruvbox_material_visual = "red background"
-g.gruvbox_material_better_performance = 1
-g.gruvbox_material_ui_contrast = "high"
-g.gruvbox_material_diagnostic_line_highlight = 1
-g.gruvbox_material_colors_override = {
-	bg2 = { "#543937", "52" },
-	red = { "#bb88bb", "182" },
-}
-vim.cmd("colorscheme gruvbox-material")
+theme.setup({
+	flavour = "frappe", -- latte, frappe, macchiato, mocha
+	background = { -- :h background
+		light = "latte",
+		dark = "mocha",
+	},
+	transparent_background = false,
+	show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+	term_colors = true,
+	dim_inactive = {
+		enabled = false,
+		shade = "dark",
+		percentage = 0.15,
+	},
+	no_italic = false, -- Force no italic
+	no_bold = false, -- Force no bold
+	styles = {
+		comments = { "italic" },
+		conditionals = { "italic" },
+		loops = {},
+		functions = {},
+		keywords = {},
+		strings = {},
+		variables = {},
+		numbers = {},
+		booleans = {},
+		properties = {},
+		types = {},
+		operators = {},
+	},
+	color_overrides = {},
+	custom_highlights = {},
+	integrations = {
+		cmp = true,
+		gitsigns = true,
+		nvimtree = true,
+		telescope = true,
+		notify = false,
+		mini = false,
+		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+	},
+})
+
+vim.cmd("colorscheme catppuccin")

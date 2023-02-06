@@ -44,11 +44,8 @@ nnoremap("<C-z>", "<C-q>")
 -- gb to go back
 nnoremap("gu", "<C-t>")
 
--- Terminal --
--- Open terminal in a horizontal split using <Alt-t>
-nnoremap("<M-t>", "<C-w>s<C-w>J:resize -12<CR>:terminal<CR>:setlocal nonumber norelativenumber signcolumn=no<CR>i")
--- <S-q> to kill terminal
-keymap("t", "<C-q>", "<C-\\><C-N>:bd!<CR>", term_opts)
+-- <ESC> to kill terminal
+keymap("t", "<ESC>", [[<C-\><C-N>]], term_opts)
 
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
@@ -70,3 +67,6 @@ keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- NvimTree
 nnoremap("<F2>", ":NvimTreeToggle<CR>")
+
+-- Template
+nnoremap("<leader>t", ":Template ")

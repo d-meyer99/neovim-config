@@ -3,16 +3,28 @@ if not status_ok then
 	return
 end
 
-nvimtree.setup{
+nvimtree.setup({
 	view = {
 		width = 30,
-		mappings = {
-			list = {
-				{ key = "u", action = "dir_up" },
-			}
-		}
+		hide_root_folder = true,
 	},
 	renderer = {
 		highlight_git = true,
-	}
-}
+		group_empty = true,
+		full_name = true,
+		indent_markers = {
+			enable = true,
+			inline_arrows = true,
+			icons = {
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
+			},
+		},
+	},
+	filters = {
+		dotfiles = true,
+	},
+})
