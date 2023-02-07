@@ -50,5 +50,6 @@ bufferline.setup({
 		separator_style = "slant",
 		always_show_bufferline = true,
 		sort_by = "insert_at_end",
+		highlights = require("catppuccin.groups.integrations.bufferline").get(),
 	},
 })

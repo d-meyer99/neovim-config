@@ -31,7 +31,7 @@ local options = {
 	linebreak = true, -- Wrap at logical place.
 	foldmethod = "expr", -- Use expression to create folds.
 	foldminlines = 3,
-	foldlevelstart = 2, -- On startup, open 2 outer levels of folds.
+	foldlevelstart = 3, -- On startup, open 2 outer levels of folds.
 	foldnestmax = 3,
 	foldexpr = "nvim_treesitter#foldexpr()",
 	smartindent = true, -- Use smart autoindenting.
@@ -41,7 +41,7 @@ local options = {
 	scrolloff = 10, -- Start vertical scrolling 10 chars before edge.
 	sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
 	cursorline = true, -- Highlight line at cursor position.
-	cursorlineopt = "line",
+	cursorlineopt = "both",
 }
 
 -- Loop through and set options.
