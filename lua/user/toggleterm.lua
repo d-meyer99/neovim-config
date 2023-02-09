@@ -33,17 +33,17 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
-local ntop = Terminal:new({ cmd = "ntop", hidden = true })
+-- local ntop = Terminal:new({ cmd = "ntop", hidden = true })
 
-function _NTOP_TOGGLE()
-	ntop:toggle()
-end
+-- function _NTOP_TOGGLE()
+-- 	ntop:toggle()
+-- end
 
-local ncspot = Terminal:new({ cmd = "ncspot", hidden = true })
+-- local ncspot = Terminal:new({ cmd = "ncspot", hidden = true })
 
-function _NCSPOT_TOGGLE()
-	ncspot:toggle()
-end
+-- function _NCSPOT_TOGGLE()
+-- 	ncspot:toggle()
+-- end
 
 local opts = { noremap = true, silent = true }
 
@@ -56,5 +56,5 @@ local function nnoremap(new, old)
 end
 
 nnoremap("<M-g>", ":lua _LAZYGIT_TOGGLE()<CR>")
-nnoremap("<M-n>", ":lua _NTOP_TOGGLE()<CR>")
-nnoremap("<M-s>", ":lua _NCSPOT_TOGGLE()<CR>")
+-- nnoremap("<M-n>", ":lua _NTOP_TOGGLE()<CR>")
+-- nnoremap("<M-s>", ":lua _NCSPOT_TOGGLE()<CR>")

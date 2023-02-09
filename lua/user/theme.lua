@@ -4,20 +4,20 @@ if not status_ok then
 end
 
 theme.setup({
-	flavour = "frappe", -- latte, frappe, macchiato, mocha
+	flavour = "macchiato", -- latte, frappe, macchiato, mocha
 	background = { -- :h background
 		light = "latte",
-		dark = "mocha",
+		dark = "macchiato",
 	},
 	transparent_background = false,
 	show_end_of_buffer = false, -- show the '~' characters after the end of buffers
 	term_colors = true,
 	dim_inactive = {
-		enabled = false,
+		enabled = true,
 		shade = "dark",
-		percentage = 0.15,
+		percentage = 0,
 	},
-	no_italic = false, -- Force no italic
+	no_italic = true, -- Force no italic
 	no_bold = false, -- Force no bold
 	styles = {
 		comments = { "italic" },

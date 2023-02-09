@@ -54,7 +54,7 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 
 -- Do not automatically insert comments on new line after a comment.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
-vim.cmd("set guifont=SauceCodePro\\ NFM:h11")
+vim.cmd("set guifont=SauceCodePro\\ NF:h11")
 vim.cmd([[
 		let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
 		let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'

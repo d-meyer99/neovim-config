@@ -44,8 +44,8 @@ nnoremap("<C-z>", "<C-q>")
 -- gb to go back
 nnoremap("gu", "<C-t>")
 
--- <ESC> to kill terminal
-keymap("t", "<ESC>", [[<C-\><C-N>]], term_opts)
+-- <C-q> to kill terminal
+keymap("t", "<C-q>", [[<C-\><C-N>]], term_opts)
 
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

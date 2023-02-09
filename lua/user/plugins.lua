@@ -40,6 +40,7 @@ packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Lua functions used by many plugins
 	use("windwp/nvim-autopairs") -- Autopairs
 	use("akinsho/toggleterm.nvim") -- ToggleTerm
+	use("tpope/vim-fugitive")
 
 	use("sainnhe/gruvbox-material") -- Gruvbox material theme
 	use({ "catppuccin/nvim", as = "catppuccin" })
