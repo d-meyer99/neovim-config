@@ -70,3 +70,7 @@ nnoremap("<F2>", ":NvimTreeToggle<CR>")
 
 -- Template
 nnoremap("<leader>t", ":Template ")
+
+-- Ufo
+nnoremap("zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
+nnoremap("zM", "<cmd>lua require('ufo').closeAllFolds()<cr>")

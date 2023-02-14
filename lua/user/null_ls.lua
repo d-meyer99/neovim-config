@@ -22,13 +22,6 @@ null_ls.setup({
 					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
-			vim.api.nvim_create_autocmd("BufWritePost", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.cmd("edit")
-				end,
-			})
 		end
 	end,
 })

@@ -5,24 +5,9 @@ end
 
 pretty_fold.setup({
 	keep_indentation = false,
-	fill_char = "━",
+	fill_char = "-",
 	sections = {
-		left = {
-			"┣",
-			function()
-				return string.rep("━━━", vim.v.foldlevel - 1)
-			end,
-			"━┫",
-			"content",
-			"┣",
-		},
-		right = {
-			"┫ ",
-			"number_of_folded_lines",
-			": ",
-			"percentage",
-			" ┣━━",
-		},
+		right = {},
 	},
 	remove_fold_markers = true,
 

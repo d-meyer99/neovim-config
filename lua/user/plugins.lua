@@ -105,6 +105,10 @@ packer.startup(function(use)
 
 	-- Folds
 	use("anuvyklack/pretty-fold.nvim")
+	use({
+		"kevinhwang91/nvim-ufo",
+		requires = "kevinhwang91/promise-async",
+	})
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")

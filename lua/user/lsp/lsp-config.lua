@@ -18,7 +18,7 @@ local default_opts = add_opts({})
 
 -- Sumenko Lua
 local sumneko_lua_opts = add_opts(require("user.lsp.settings.sumneko_lua"))
-lsp_config.sumneko_lua.setup(sumneko_lua_opts)
+lsp_config.lua_ls.setup(sumneko_lua_opts)
 
 -- Jsonls
 local jsonls = add_opts(require("user.lsp.settings.jsonls"))
