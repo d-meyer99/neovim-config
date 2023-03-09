@@ -25,8 +25,8 @@ local options = {
 	}, -- Show trailing spaces as "~".
 	list = true, -- Show whitespace.
 	signcolumn = "yes", -- Always show sign column.
-	textwidth = 100, -- Set max text width to 100 characters.
-	colorcolumn = "101", -- Show column 101 as colored.
+	textwidth = 120, -- Set max text width to 100 characters.
+	colorcolumn = "121", -- Show column 101 as colored.
 	wrap = true, -- Wrap text.
 	linebreak = true, -- Wrap at logical place.
 	foldcolumn = "0",
@@ -54,7 +54,7 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 
 -- Do not automatically insert comments on new line after a comment.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
-vim.cmd("set guifont=SauceCodePro\\ NF:h11")
+vim.cmd("set guifont=SauceCodePro\\ NF:h10")
 vim.cmd([[
 		let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
 		let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'

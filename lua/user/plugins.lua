@@ -47,12 +47,14 @@ packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua") -- Colorizer
 	use("numToStr/Comment.nvim") -- Comments
 
-	use({ -- Status Line
+	use({
+		-- Status Line
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
-	use({ -- Buffer Line
+	use({
+		-- Buffer Line
 		"akinsho/bufferline.nvim",
 		tag = "v3.*",
 		requires = { "nvim-tree/nvim-web-devicons" },
@@ -79,6 +81,7 @@ packer.startup(function(use)
 		},
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("Hoffs/omnisharp-extended-lsp.nvim")
 
 	--Razor syntax highlighting
 	use("jlcrochet/vim-razor")

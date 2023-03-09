@@ -5,14 +5,14 @@ end
 
 telescope.load_extension("media_files")
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
 	defaults = {
 
 		prompt_prefix = " ",
 		selection_caret = " ",
-		path_display = { "smart" },
+		path_display = { "truncate = 3" },
 
 		mappings = {
 			i = {
@@ -80,25 +80,25 @@ telescope.setup {
 		},
 	},
 	pickers = {
-	-- Default configuration for builtin pickers goes here:
-	-- picker_name = {
-	--   picker_config_key = value,
-	--   ...
-	-- }
-	-- Now the picker_config_key will be applied every time you call this
-	-- builtin picker
+		-- Default configuration for builtin pickers goes here:
+		-- picker_name = {
+		--   picker_config_key = value,
+		--   ...
+		-- }
+		-- Now the picker_config_key will be applied every time you call this
+		-- builtin picker
 	},
 	extensions = {
 		media_files = {
 			-- filetpyes whitelist
 			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-			filetpyes = {"png", "webp", "jpg", "jpeg"},
-			find_cmd = "rg" --find command (defaults to `fd`)
-		}
-	-- Your extension configuration goes here:
-	-- extension_name = {
-	--   extension_config_key = value,
-	-- }
-	-- please take a look at the readme of the extension you want to configure
+			filetpyes = { "png", "webp", "jpg", "jpeg" },
+			-- find_cmd = "rg", --find command (defaults to `fd`)
+		},
+		-- Your extension configuration goes here:
+		-- extension_name = {
+		--   extension_config_key = value,
+		-- }
+		-- please take a look at the readme of the extension you want to configure
 	},
-}
+})

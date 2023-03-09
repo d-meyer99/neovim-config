@@ -28,8 +28,12 @@ lsp_config.jsonls.setup(jsonls)
 lsp_config.tsserver.setup(default_opts)
 
 -- OmniSharp
+-- local omnisharp_opts = add_opts(require("user.lsp.settings.omnisharp"))
+-- lsp_config.omnisharp.setup(omnisharp_opts)
+
+-- OmniSharp Mono
 local omnisharp_opts = add_opts(require("user.lsp.settings.omnisharp"))
-lsp_config.omnisharp.setup(omnisharp_opts)
+lsp_config.omnisharp_mono.setup(omnisharp_opts)
 
 -- RustAnalyzer
 -- local rust_analyzer_opts = add_opts(require("user.lsp.settings.rust_analyzer"))

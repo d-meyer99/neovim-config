@@ -5,7 +5,7 @@ end
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
 	local newVirtText = {}
-	local suffix = (" {  %d } "):format(endLnum - lnum)
+	local suffix = (" ▼ %d "):format(endLnum - lnum)
 	local sufWidth = vim.fn.strdisplaywidth(suffix)
 	local targetWidth = width - sufWidth
 	local curWidth = 0
@@ -32,5 +32,7 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 ufo.setup({
+	open_fold_hl_timeout = 0,
+	close_fold_kinds = { "imports", "comment", "function" },
 	fold_virt_text_handler = handler,
 })

@@ -5,7 +5,7 @@ end
 
 pretty_fold.setup({
 	keep_indentation = false,
-	fill_char = "-",
+	fill_char = "",
 	sections = {
 		right = {},
 	},
