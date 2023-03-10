@@ -18,7 +18,8 @@ local options = {
 	termguicolors = true, -- Enable 24-bit RGB in terminal.
 	shiftwidth = 4, -- Number of spaces to use for auto indent.
 	expandtab = false, -- Do not replace tabs with spaces.
-	listchars = { -- Show whitespace configuration list.
+	listchars = {
+		-- Show whitespace configuration list.
 		space = "•", -- Show spaces as "•".
 		tab = ">-", -- Show tabs as ">---".
 		trail = "~",
@@ -29,11 +30,11 @@ local options = {
 	colorcolumn = "98", -- Show column 86 as colored.
 	wrap = true, -- Wrap text.
 	linebreak = true, -- Wrap at logical place.
-	foldmethod = "expr", -- Use expression to create folds.
+	foldcolumn = "0",
 	foldminlines = 3,
-	foldlevelstart = 3, -- On startup, open 2 outer levels of folds.
+	foldlevelstart = 99, -- On startup, open 2 outer levels of folds.
 	foldnestmax = 3,
-	foldexpr = "nvim_treesitter#foldexpr()",
+	foldenable = true,
 	smartindent = true, -- Use smart autoindenting.
 	splitbelow = true, -- Force new splits to appear below current split.
 	splitright = true, -- Force new vertical splits to appear to the right.
@@ -41,7 +42,7 @@ local options = {
 	scrolloff = 10, -- Start vertical scrolling 10 chars before edge.
 	sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
 	cursorline = true, -- Highlight line at cursor position.
-	cursorlineopt = "both",
+	cursorlineopt = "line",
 }
 
 -- Loop through and set options.

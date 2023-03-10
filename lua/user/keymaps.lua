@@ -44,7 +44,7 @@ nnoremap("<C-z>", "<C-q>")
 -- gb to go back
 nnoremap("gu", "<C-t>")
 
--- <C-q> to enter normal mode from terminal
+-- <C-q> to kill terminal
 keymap("t", "<C-q>", [[<C-\><C-N>]], term_opts)
 
 -- Better terminal navigation
@@ -54,7 +54,19 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope keymaps
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
+keymap(
+	"n",
+	"<leader>f",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy())<CR>",
+	opts
+)
+keymap(
+	"n",
+	"<leader>a",
+	"<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy())<CR>",
+	opts
+)
+keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy())<CR>", opts)
 keymap(
 	"n",
 	"gr",
@@ -68,3 +80,22 @@ nnoremap("<F2>", ":NvimTreeToggle<CR>")
 
 -- Template
 nnoremap("<leader>t", ":Template ")
+
+-- Ufo
+nnoremap("zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
+nnoremap("zM", "<cmd>lua require('ufo').closeAllFolds()<cr>")
+vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
+vim.keymap.set("n", "K", function()
+	local winid = require("ufo").peekFoldedLinesUnderCursor()
+	if not winid then
+		-- choose one of coc.nvim and nvim lsp
+		vim.lsp.buf.hover()
+	end
+end, opts)
+
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+
+-- Alt f to format and save
+nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
+vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })

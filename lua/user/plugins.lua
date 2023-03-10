@@ -40,18 +40,20 @@ packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Lua functions used by many plugins
 	use("windwp/nvim-autopairs") -- Autopairs
 	use("akinsho/toggleterm.nvim") -- ToggleTerm
+	use("tpope/vim-fugitive")
 
-	use("sainnhe/gruvbox-material") -- Gruvbox material theme
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua") -- Colorizer
 	use("numToStr/Comment.nvim") -- Comments
 
-	use({ -- Status Line
+	use({
+		-- Status Line
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
-	use({ -- Buffer Line
+	use({
+		-- Buffer Line
 		"akinsho/bufferline.nvim",
 		tag = "v3.*",
 		requires = { "nvim-tree/nvim-web-devicons" },
@@ -78,6 +80,7 @@ packer.startup(function(use)
 		},
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("Hoffs/omnisharp-extended-lsp.nvim")
 
 	--Razor syntax highlighting
 	use("jlcrochet/vim-razor")
@@ -85,6 +88,7 @@ packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-media-files.nvim")
+	use("AckslD/nvim-neoclip.lua")
 
 	-- Treesitter
 	use({
@@ -104,9 +108,15 @@ packer.startup(function(use)
 
 	-- Folds
 	use("anuvyklack/pretty-fold.nvim")
+	use({
+		"kevinhwang91/nvim-ufo",
+		requires = "kevinhwang91/promise-async",
+	})
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+
+	use("goolord/alpha-nvim")
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
