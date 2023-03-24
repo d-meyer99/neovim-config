@@ -5,7 +5,8 @@ end
 
 theme.setup({
 	flavour = "macchiato", -- latte, frappe, macchiato, mocha
-	background = { -- :h background
+	background = {
+		-- :h background
 		light = "latte",
 		dark = "macchiato",
 	},
@@ -21,7 +22,6 @@ theme.setup({
 	no_bold = false, -- Force no bold
 	styles = {
 		comments = { "bold" },
-		conditionals = { "italic" },
 		loops = {},
 		functions = {},
 		keywords = {},

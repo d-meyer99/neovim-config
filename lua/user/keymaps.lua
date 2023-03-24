@@ -74,6 +74,7 @@ keymap(
 	opts
 )
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=ivy<CR>", opts)
 
 -- NvimTree
 nnoremap("<F2>", ":NvimTreeToggle<CR>")

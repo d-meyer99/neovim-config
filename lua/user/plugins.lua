@@ -118,6 +118,8 @@ packer.startup(function(use)
 
 	use("goolord/alpha-nvim")
 
+	use("ahmedkhalf/project.nvim")
+
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
 	if PACKER_BOOTSTRAP then
