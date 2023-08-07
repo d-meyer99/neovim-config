@@ -120,6 +120,9 @@ packer.startup(function(use)
 
 	use("ahmedkhalf/project.nvim")
 
+	-- Rust
+	use("simrat39/rust-tools.nvim")
+
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins
 	if PACKER_BOOTSTRAP then

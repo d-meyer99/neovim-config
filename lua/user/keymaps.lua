@@ -62,7 +62,7 @@ keymap(
 )
 keymap(
 	"n",
-	"<leader>a",
+	"<leader>gf",
 	"<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy())<CR>",
 	opts
 )
