@@ -8,8 +8,13 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
 	sources = {
 		formatting.stylua,
-		formatting.csharpier,
 		formatting.rustfmt,
 		formatting.prettier,
+		formatting.sqlfluff.with({
+			extra_args = { "--dialect", "sqlite" }
+		}),
+		formatting.beautysh.with({
+			extra_args = { "-t" }
+		})
 	},
 })

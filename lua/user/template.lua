@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 template.setup({
-	temp_dir = "~/AppData/Local/nvim/templates",
+	temp_dir = "~/.config/nvim/templates",
 })
 
 require("telescope").load_extension("find_template")

@@ -1,50 +1,51 @@
-local status_ok, theme = pcall(require, "catppuccin")
+local status_ok, theme = pcall(require, "monokai-pro")
 if not status_ok then
 	return
 end
 
 theme.setup({
-	flavour = "macchiato", -- latte, frappe, macchiato, mocha
-	background = {
-		-- :h background
-		light = "latte",
-		dark = "macchiato",
-	},
-	transparent_background = false,
-	show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-	term_colors = true,
-	dim_inactive = {
-		enabled = true,
-		shade = "dark",
-		percentage = 0,
-	},
-	no_italic = true, -- Force no italic
-	no_bold = false, -- Force no bold
+	transparent_background = true,
+	terminal_colors = true,
+	devicons = true, -- highlight the icons of `nvim-web-devicons`
 	styles = {
-		comments = { "bold" },
-		loops = {},
-		functions = {},
-		keywords = {},
-		strings = {},
-		variables = {},
-		numbers = {},
-		booleans = {},
-		properties = {},
-		types = {},
-		operators = {},
+		comment = { italic = true },
+		keyword = { italic = true }, -- any other keyword
+		type = { italic = true }, -- (preferred) int, long, char, etc
+		storageclass = { italic = true }, -- static, register, volatile, etc
+		structure = { italic = true }, -- struct, union, enum, etc
+		parameter = { italic = true }, -- parameter pass in function
+		annotation = { italic = true },
+		tag_attribute = { italic = true }, -- attribute of tag in reactjs
 	},
-	color_overrides = {},
-	custom_highlights = {},
-	integrations = {
-		cmp = true,
-		gitsigns = true,
-		nvimtree = true,
-		telescope = true,
-		notify = false,
-		mini = false,
-		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+	filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+	-- Enable this will disable filter option
+	day_night = {
+		enable = false, -- turn off by default
+		day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+		night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+	},
+	inc_search = "background", -- underline | background
+	background_clear = {
+		-- "float_win",
+		"toggleterm",
+		"telescope",
+		-- "which-key",
+		"renamer",
+		"notify",
+		"nvim-tree",
+		-- "neo-tree",
+	},-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree"
+	plugins = {
+		bufferline = {
+			underline_selected = true,
+			underline_visible = false,
+		},
+		indent_blankline = {
+			context_highlight = "default", -- default | pro
+			context_start_underline = false,
+		},
 	},
 })
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme monokai-pro")
 vim.api.nvim_set_hl(0, "CursorLine", { underline = true })

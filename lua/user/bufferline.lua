@@ -6,7 +6,7 @@ end
 bufferline.setup({
 	options = {
 		mode = "buffer", -- set to "tabs" to only show tabpages instead
-		numbers = "ordinal",
+		numbers = "none",
 		close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
@@ -26,7 +26,7 @@ bufferline.setup({
 		max_name_length = 18,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		truncate_names = true, -- whether or not tab names should be truncated
-		tab_size = 18,
+		tab_size = 22,
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
 		-- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
@@ -45,11 +45,9 @@ bufferline.setup({
 		color_icons = true, -- whether or not to add the filetype icon highlights
 		show_buffer_icons = true, -- disable filetype icons for buffers
 		show_buffer_close_icons = false,
-		show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
 		show_close_icon = false,
 		separator_style = "slant",
 		always_show_bufferline = true,
 		sort_by = "insert_at_end",
-		highlights = require("catppuccin.groups.integrations.bufferline").get(),
 	},
 })

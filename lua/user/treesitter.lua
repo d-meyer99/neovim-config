@@ -7,14 +7,14 @@ require("nvim-treesitter.install").prefer_git = false
 
 configs.setup {
 	-- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = { "c", "lua", "vim", "help", "c_sharp" },
+	ensure_installed = { "c", "lua", "vim", "rust", "toml" },
 	-- install languages synchronously (only applied to `ensure_installed`)
 	sync_install = false,
 	ignore_install = { "" },
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "" },
-		additional_vim_regex_highlighting = true,
+		additional_vim_regex_highlighting = false,
 	},
 	indent = { enable = true },
 	rainbow = {

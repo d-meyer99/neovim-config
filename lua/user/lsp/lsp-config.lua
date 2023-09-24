@@ -21,10 +21,9 @@ local sumneko_lua_opts = add_opts(require("user.lsp.settings.sumneko_lua"))
 lsp_config.lua_ls.setup(sumneko_lua_opts)
 
 -- Jsonls
-local jsonls = add_opts(require("user.lsp.settings.jsonls"))
-lsp_config.jsonls.setup(jsonls)
+-- local jsonls = add_opts(require("user.lsp.settings.jsonls"))
+-- lsp_config.jsonls.setup(jsonls)
 
--- Tsserver
 lsp_config.tsserver.setup(default_opts)
 
 -- HTML
@@ -41,5 +40,8 @@ lsp_config.omnisharp.setup(omnisharp_opts)
 -- local rust_analyzer_opts = add_opts(require("user.lsp.settings.rust_analyzer"))
 -- lsp_config.rust_analyzer.setup(rust_analyzer_opts)
 
--- Powershell
-lsp_config.powershell_es.setup(default_opts)
+-- Bash
+lsp_config.bashls.setup(default_opts)
+
+-- SQLLS
+-- lsp_config.sqlls.setup(default_opts)
