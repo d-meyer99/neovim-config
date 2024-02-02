@@ -3,15 +3,15 @@ require("mason-lspconfig").setup()
 
 local status_ok, lsp_config = pcall(require, "lspconfig")
 if not status_ok then
-	return
+    return
 end
 
 local handlers = require("user.lsp.handlers")
 
 local function add_opts(opts)
-	opts["on_attach"] = handlers.on_attach
-	opts["capabilities"] = handlers.capabilities
-	return opts
+    opts["on_attach"] = handlers.on_attach
+    opts["capabilities"] = handlers.capabilities
+    return opts
 end
 
 local default_opts = add_opts({})
@@ -42,6 +42,18 @@ lsp_config.omnisharp.setup(omnisharp_opts)
 
 -- Bash
 lsp_config.bashls.setup(default_opts)
+
+-- Haskell
+local haskell_opts = add_opts({
+    filetypes = { "haskell", "lhaskell", "cabal" },
+    settings = {
+        haskell = {
+            formattingProvider = "fourmolu",
+        },
+    },
+    single_file_support = true
+})
+lsp_config.hls.setup(haskell_opts)
 
 -- SQLLS
 -- lsp_config.sqlls.setup(default_opts)
