@@ -55,3 +55,7 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 
 -- Do not automatically insert comments on new line after a comment.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
+
+vim.cmd("autocmd FileType nix setlocal shiftwidth=2")
+vim.cmd("autocmd FileType nix setlocal tabstop=2")
+

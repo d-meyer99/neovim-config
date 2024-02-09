@@ -5,8 +5,18 @@ end
 
 nvimtree.setup({
     view = {
-        width = 30,
+        width = 35,
         hide_root_folder = false,
+        float = {
+            enable = true,
+            open_win_config = {
+                relative = "editor",
+                width = 35,
+                height = 50,
+                row = 1,
+                col = 300
+            }
+        }
     },
     renderer = {
         highlight_git = true,

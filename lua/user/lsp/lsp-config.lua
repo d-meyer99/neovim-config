@@ -55,5 +55,7 @@ local haskell_opts = add_opts({
 })
 lsp_config.hls.setup(haskell_opts)
 
+lsp_config.nil_ls.setup(default_opts)
+
 -- SQLLS
 -- lsp_config.sqlls.setup(default_opts)
