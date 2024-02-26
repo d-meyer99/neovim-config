@@ -31,17 +31,13 @@ nnoremap("<C-Right>", ":vertical resize +2<CR>")
 -- Close split with <C-q>
 nnoremap("<C-q>", "<C-w>q")
 
--- Move buffers with <Shift-[hl]>
-nnoremap("<S-h>", ":BufferLineCyclePrev<CR>")
-nnoremap("<S-l>", ":BufferLineCycleNext<CR>")
-
 -- Close buffer with <Shift-q>
 nnoremap("<S-q>", ":TSBufDisable all<cr>:bp|bd #<CR>")
 
 -- Visual Block mode with <C-z>
 nnoremap("<C-z>", "<C-q>")
 
--- gb to go back
+-- gu to go back
 nnoremap("gu", "<C-t>")
 
 -- <C-q> to kill terminal
@@ -82,21 +78,11 @@ nnoremap("<F2>", ":NvimTreeToggle<CR>")
 -- Template
 nnoremap("<leader>t", ":Template ")
 
--- Ufo
-nnoremap("zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
-nnoremap("zM", "<cmd>lua require('ufo').closeAllFolds()<cr>")
-vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
-vim.keymap.set("n", "K", function()
-    local winid = require("ufo").peekFoldedLinesUnderCursor()
-    if not winid then
-        -- choose one of coc.nvim and nvim lsp
-        vim.lsp.buf.hover()
-    end
-end, opts)
-
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
 -- Alt f to format and save
 nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })
+
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

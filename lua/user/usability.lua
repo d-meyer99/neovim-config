@@ -1,3 +1,4 @@
 require("Comment").setup({
     ignore = "^$",
 })
+

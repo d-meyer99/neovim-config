@@ -52,13 +52,6 @@ packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons" },
     })
 
-    use({
-        -- Buffer Line
-        "akinsho/bufferline.nvim",
-        tag = "v3.*",
-        requires = { "nvim-tree/nvim-web-devicons" },
-    })
-
     -- Cmp plugins
     use("hrsh7th/nvim-cmp") -- Completion
     use("hrsh7th/cmp-buffer") -- Buffer completions
@@ -74,16 +67,8 @@ packer.startup(function(use)
     -- LSP
     use({
         "neovim/nvim-lspconfig", -- LSP
-        requires = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        },
     })
     use("jose-elias-alvarez/null-ls.nvim")
-    use("Hoffs/omnisharp-extended-lsp.nvim")
-
-    --Razor syntax highlighting
-    use("jlcrochet/vim-razor")
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
@@ -106,41 +91,22 @@ packer.startup(function(use)
     -- Templates
     use("glepnir/template.nvim")
 
-    -- Folds
-    use("anuvyklack/pretty-fold.nvim")
-    use({
-        "kevinhwang91/nvim-ufo",
-        requires = "kevinhwang91/promise-async",
-    })
-
     -- Git
     use("lewis6991/gitsigns.nvim")
 
     use("goolord/alpha-nvim")
 
-    use("ahmedkhalf/project.nvim")
-
     -- Rust
-    use("simrat39/rust-tools.nvim")
     use("mfussenegger/nvim-dap")
     use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
     -- Tint
     use("levouh/tint.nvim")
 
-    use({
-        "nvim-orgmode/orgmode",
-        config = function()
-            require("orgmode").setup({})
-        end,
-    })
+    use("vimwiki/vimwiki")
 
-    use({
-        "akinsho/org-bullets.nvim",
-        config = function()
-            require("org-bullets").setup()
-        end,
-    })
+    use("anuvyklack/pretty-fold.nvim")
+    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
     -- Auto set config after cloning packer
     -- Keep this after all plugins

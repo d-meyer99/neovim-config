@@ -1,6 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
-
 local status_ok, lsp_config = pcall(require, "lspconfig")
 if not status_ok then
     return
@@ -29,31 +26,11 @@ lsp_config.tsserver.setup(default_opts)
 -- HTML
 lsp_config.html.setup(default_opts)
 
--- Tailwind
-lsp_config.tailwindcss.setup(default_opts)
-
--- OmniSharp
-local omnisharp_opts = add_opts(require("user.lsp.settings.omnisharp"))
-lsp_config.omnisharp.setup(omnisharp_opts)
-
--- RustAnalyzer
--- local rust_analyzer_opts = add_opts(require("user.lsp.settings.rust_analyzer"))
--- lsp_config.rust_analyzer.setup(rust_analyzer_opts)
+-- CSS
+lsp_config.cssls.setup(default_opts)
 
 -- Bash
 lsp_config.bashls.setup(default_opts)
-
--- Haskell
-local haskell_opts = add_opts({
-    filetypes = { "haskell", "lhaskell", "cabal" },
-    settings = {
-        haskell = {
-            formattingProvider = "fourmolu",
-        },
-    },
-    single_file_support = true
-})
-lsp_config.hls.setup(haskell_opts)
 
 lsp_config.nil_ls.setup(default_opts)
 

@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 require("nvim-treesitter.install").prefer_git = false
-require("orgmode").setup_ts_grammar()
 require("rainbow-delimiters.setup").setup()
 
 configs.setup({

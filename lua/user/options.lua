@@ -14,7 +14,7 @@ local options = {
     backspace = "2", -- Allow backspace over autoindent, eol and start.
     tabstop = 4, -- Number of spaces that a tab uses.
     softtabstop = 4, -- Number of spaces a tab uses when editing.
-    showtabline = 2, -- Always show tabline.
+    showtabline = 0, -- Always show tabline.
     termguicolors = true, -- Enable 24-bit RGB in terminal.
     shiftwidth = 4, -- Number of spaces to use for auto indent.
     expandtab = true, -- replace tabs with spaces.
@@ -32,7 +32,7 @@ local options = {
     linebreak = true, -- Wrap at logical place.
     foldcolumn = "0",
     foldminlines = 1,
-    foldlevelstart = 99, -- On startup, open 2 outer levels of folds.
+    foldlevelstart = 2, -- On startup, open 2 outer levels of folds.
     foldnestmax = 3,
     foldenable = true,
     smartindent = true, -- Use smart autoindenting.
@@ -42,7 +42,7 @@ local options = {
     scrolloff = 10, -- Start vertical scrolling 10 chars before edge.
     sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
     cursorline = true, -- Highlight line at cursor position.
-    cursorlineopt = "line",
+    cursorlineopt = "number",
 }
 
 -- Loop through and set options.
@@ -56,6 +56,6 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 -- Do not automatically insert comments on new line after a comment.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
 
+-- Set tab size to 2 in nix.
 vim.cmd("autocmd FileType nix setlocal shiftwidth=2")
 vim.cmd("autocmd FileType nix setlocal tabstop=2")
-

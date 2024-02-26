@@ -10,6 +10,7 @@ null_ls.setup({
         formatting.stylua,
         formatting.rustfmt,
         formatting.prettier,
+        formatting.alejandra,
         formatting.sqlfluff.with({
             extra_args = { "--dialect", "sqlite" },
         }),
