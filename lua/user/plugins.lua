@@ -36,7 +36,7 @@ packer.init({
 -- Startup and configure plugins
 packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer itself
-	use("nvim-lua/popup.nvim") -- Popup API from vim in Neovim
+	use("nvim-lua/popup.nvim")  -- Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Lua functions used by many plugins
 	use("windwp/nvim-autopairs") -- Autopairs
 	use("akinsho/toggleterm.nvim") -- ToggleTerm
@@ -44,7 +44,7 @@ packer.startup(function(use)
 
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("norcalli/nvim-colorizer.lua") -- Colorizer
-	use("numToStr/Comment.nvim") -- Comments
+	use("numToStr/Comment.nvim")    -- Comments
 
 	use({
 		-- Status Line
@@ -60,15 +60,15 @@ packer.startup(function(use)
 	})
 
 	-- Cmp plugins
-	use("hrsh7th/nvim-cmp") -- Completion
-	use("hrsh7th/cmp-buffer") -- Buffer completions
-	use("hrsh7th/cmp-path") -- Path completion
-	use("hrsh7th/cmp-cmdline") -- Commandline completions
-	use("hrsh7th/cmp-nvim-lsp") -- LSP completions
+	use("hrsh7th/nvim-cmp")      -- Completion
+	use("hrsh7th/cmp-buffer")    -- Buffer completions
+	use("hrsh7th/cmp-path")      -- Path completion
+	use("hrsh7th/cmp-cmdline")   -- Commandline completions
+	use("hrsh7th/cmp-nvim-lsp")  -- LSP completions
 	use("saadparwaiz1/cmp_luasnip") -- Snippet completions
 
 	-- Snippets
-	use("L3MON4D3/LuaSnip") -- Snippet Engine
+	use("L3MON4D3/LuaSnip")          -- Snippet Engine
 	use("rafamadriz/friendly-snippets") -- Snippet Library
 
 	-- LSP
@@ -119,6 +119,12 @@ packer.startup(function(use)
 	use("goolord/alpha-nvim")
 
 	use("ahmedkhalf/project.nvim")
+
+	use("vimwiki/vimwiki")
+
+	use('mfussenegger/nvim-lint')
+
+	use("carlsmedstad/vim-bicep")
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins

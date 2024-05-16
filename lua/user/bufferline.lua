@@ -5,12 +5,12 @@ end
 
 bufferline.setup({
 	options = {
-		mode = "buffer", -- set to "tabs" to only show tabpages instead
+		mode = "buffer",               -- set to "tabs" to only show tabpages instead
 		numbers = "ordinal",
 		close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-		middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+		middle_mouse_command = nil,    -- can be a string | function, see "Mouse actions"
 		indicator = {
 			style = "underline",
 		},
@@ -45,11 +45,26 @@ bufferline.setup({
 		color_icons = true, -- whether or not to add the filetype icon highlights
 		show_buffer_icons = true, -- disable filetype icons for buffers
 		show_buffer_close_icons = false,
-		show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
 		show_close_icon = false,
 		separator_style = "slant",
 		always_show_bufferline = true,
 		sort_by = "insert_at_end",
 		highlights = require("catppuccin.groups.integrations.bufferline").get(),
+		groups = {
+			options = {
+				toggle_hidden_on_enter = true -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
+			},
+			items = {
+				require('bufferline.groups').builtin.pinned:with({ icon = "" }),
+				require('bufferline.groups').builtin.ungrouped,
+				{
+					name = "Wiki", -- Mandatory
+					auto_close = true, -- whether or not close this group if it doesn't contain the current buffer
+					matcher = function(buf) -- Mandatory
+						return buf.filename:match('%.wiki')
+					end,
+				},
+			}
+		}
 	},
 })

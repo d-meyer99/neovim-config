@@ -18,7 +18,7 @@ theme.setup({
 		shade = "dark",
 		percentage = 0,
 	},
-	no_italic = true, -- Force no italic
+	no_italic = false, -- Force no italic
 	no_bold = false, -- Force no bold
 	styles = {
 		comments = { "bold" },
@@ -26,7 +26,7 @@ theme.setup({
 		functions = {},
 		keywords = {},
 		strings = {},
-		variables = {},
+		variables = { },
 		numbers = {},
 		booleans = {},
 		properties = {},

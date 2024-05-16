@@ -20,18 +20,18 @@ local options = {
 	expandtab = false, -- Do not replace tabs with spaces.
 	listchars = {
 		-- Show whitespace configuration list.
-		space = "•", -- Show spaces as "•".
-		tab = ">-", -- Show tabs as ">---".
+		space = "∙", -- Show spaces as "·".
+		tab = " ", -- Show tabs as "   ".
 		trail = "~",
 	}, -- Show trailing spaces as "~".
 	list = true, -- Show whitespace.
 	signcolumn = "yes", -- Always show sign column.
-	textwidth = 97, -- Set max text width to 85 characters.
-	colorcolumn = "98", -- Show column 86 as colored.
-	wrap = true, -- Wrap text.
+	textwidth = 140, -- Set max text width to 140 characters.
+	colorcolumn = "141", -- Show column 141 as colored.
+	wrap = false, -- Don't wrap text.
 	linebreak = true, -- Wrap at logical place.
 	foldcolumn = "0",
-	foldminlines = 3,
+	foldminlines = 2,
 	foldlevelstart = 99, -- On startup, open 2 outer levels of folds.
 	foldnestmax = 3,
 	foldenable = true,
@@ -43,6 +43,7 @@ local options = {
 	sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
 	cursorline = true, -- Highlight line at cursor position.
 	cursorlineopt = "line",
+	fixendofline = false
 }
 
 -- Loop through and set options.
@@ -55,7 +56,34 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 
 -- Do not automatically insert comments on new line after a comment.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
-vim.cmd("set guifont=SauceCodePro\\ NFM:h11")
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		vim.opt["expandtab"] = false;
+		vim.opt["tabstop"] = 4;
+		vim.opt["shiftwidth"] = 4;
+	end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.wiki",
+	callback = function()
+		vim.opt["expandtab"] = true;
+		vim.opt["tabstop"] = 4;
+		vim.opt["shiftwidth"] = 4;
+	end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.bicep,*.json,*.html,*.ts,*.scss,*.js,*.yml,*.yaml",
+	callback = function()
+		vim.opt["expandtab"] = true;
+		vim.opt["tabstop"] = 2;
+		vim.opt["shiftwidth"] = 2;
+	end
+})
+
 vim.cmd([[
 		let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
 		let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'

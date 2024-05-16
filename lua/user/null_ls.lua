@@ -5,10 +5,13 @@ end
 
 local formatting = null_ls.builtins.formatting
 
+
 null_ls.setup({
 	sources = {
 		formatting.stylua,
 		formatting.csharpier,
 		formatting.rustfmt,
+		formatting.prettier,
+		formatting.yapf
 	},
 })

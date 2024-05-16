@@ -5,9 +5,11 @@ end
 
 require("nvim-treesitter.install").prefer_git = false
 
+require('orgmode').setup_ts_grammar()
+
 configs.setup {
 	-- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = { "c", "lua", "vim", "help", "c_sharp" },
+	ensure_installed = { "lua", "vim", "help", "c_sharp", "org" },
 	-- install languages synchronously (only applied to `ensure_installed`)
 	sync_install = false,
 	ignore_install = { "" },
@@ -23,3 +25,5 @@ configs.setup {
 		max_file_lines = nil,
 	}
 }
+
+require('orgmode').setup {}

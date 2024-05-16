@@ -32,11 +32,11 @@ nnoremap("<C-Right>", ":vertical resize +2<CR>")
 nnoremap("<C-q>", "<C-w>q")
 
 -- Move buffers with <Shift-[hl]>
-nnoremap("<S-h>", ":bp<CR>")
-nnoremap("<S-l>", ":bn<CR>")
+nnoremap("<S-h>", ":BufferLineCyclePrev<CR>")
+nnoremap("<S-l>", ":BufferLineCycleNext<CR>")
 
 -- Close buffer with <Shift-q>
-nnoremap("<S-q>", ":bd<CR>")
+nnoremap("<S-q>", ":bp|bd #<CR>")
 
 -- Visual Block mode with <C-z>
 nnoremap("<C-z>", "<C-q>")
@@ -100,3 +100,12 @@ vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 -- Alt f to format and save
 nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })
+
+-- Alt + h,j,k,l to scroll
+nnoremap("<M-h>", "2zh")
+nnoremap("<M-l>", "2zl")
+nnoremap("<M-j>", "2<C-e>")
+nnoremap("<M-k>", "2<C-y>")
+
+nnoremap("<leader>x", ":VimwikiToggleListItem<cr>")
+nnoremap("<leader>wt", ":BufferLineGroupToggle Wiki<cr>")

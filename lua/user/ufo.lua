@@ -33,6 +33,14 @@ end
 
 ufo.setup({
 	open_fold_hl_timeout = 0,
-	close_fold_kinds = { "imports", "comment", "function" },
+	close_fold_kinds_for_ft = { default = {"imports", "comment", "function" }},
 	fold_virt_text_handler = handler,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.wiki",
+	callback = function()
+		vim.cmd("UfoEnableFold")
+	end
+})
+
