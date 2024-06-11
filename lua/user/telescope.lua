@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 telescope.load_extension("media_files")
-telescope.load_extension("projects")
 telescope.load_extension("neoclip")
 
 local actions = require("telescope.actions")
@@ -81,9 +80,6 @@ telescope.setup({
 			filetpyes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", --find command (defaults to `fd`)
 		},
-		projects ={
-			projects = {}
-		}
 		-- Your extension configuration goes here:
 		-- extension_name = {
 		--   extension_config_key = value,

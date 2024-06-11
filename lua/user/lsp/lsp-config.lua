@@ -97,3 +97,5 @@ lsp_config.pylsp.setup(add_opts({
 }))
 
 lsp_config.bicep.setup(default_opts)
+
+lsp_config.cssls.setup(default_opts)

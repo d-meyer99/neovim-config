@@ -118,13 +118,13 @@ packer.startup(function(use)
 
 	use("goolord/alpha-nvim")
 
-	use("ahmedkhalf/project.nvim")
-
 	use("vimwiki/vimwiki")
 
 	use('mfussenegger/nvim-lint')
 
 	use("carlsmedstad/vim-bicep")
+
+	use('mbbill/undotree')
 
 	-- Auto set config after cloning packer
 	-- Keep this after all plugins

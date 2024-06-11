@@ -41,7 +41,7 @@ nnoremap("<S-q>", ":bp|bd #<CR>")
 -- Visual Block mode with <C-z>
 nnoremap("<C-z>", "<C-q>")
 
--- gb to go back
+-- gu to go back
 nnoremap("gu", "<C-t>")
 
 -- <C-q> to kill terminal
@@ -107,5 +107,9 @@ nnoremap("<M-l>", "2zl")
 nnoremap("<M-j>", "2<C-e>")
 nnoremap("<M-k>", "2<C-y>")
 
+-- Vimwiki
 nnoremap("<leader>x", ":VimwikiToggleListItem<cr>")
 nnoremap("<leader>wt", ":BufferLineGroupToggle Wiki<cr>")
+
+-- leader -> u for undo tree
+nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")

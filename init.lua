@@ -53,6 +53,5 @@ else
 	require("user.gitsigns")
 	require("user.alpha")
 	require("user.ufo")
-	require("user.project")
 	require("user.neoclip")
 end

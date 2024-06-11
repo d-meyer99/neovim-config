@@ -37,7 +37,7 @@ neoclip.setup({
 		telescope = {
 			i = {
 				select = "<cr>",
-				paste = "<c-p>",
+				paste = "<cr>",
 				paste_behind = "<c-P>",
 				replay = "<c-q>", -- replay a macro
 				delete = "<c-d>", -- delete an entry
@@ -46,7 +46,7 @@ neoclip.setup({
 			},
 			n = {
 				select = "<cr>",
-				paste = "p",
+				paste = "<cr>",
 				paste_behind = "P",
 				replay = "q",
 				delete = "d",

@@ -14,8 +14,18 @@ M.setup = function()
 	end
 
 	local config = {
-		-- disable virtual text
-		virtual_text = false,
+		-- show virtual text on hints or higher severity
+		virtual_text = {
+			severity = { min = vim.diagnostic.severity.HINT },
+			spacing = 1,
+			format = function(diagnostic)
+				if string.len(diagnostic.message) > 50 then
+					return string.format("%s...", string.sub(diagnostic.message, 1, 47))
+				else
+					return diagnostic.message
+				end
+			end
+		},
 		-- show signs
 		signs = {
 			active = signs,
@@ -92,7 +102,9 @@ local function lsp_keymaps(bufnr)
 	-- 	opts
 	-- )
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>da", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>de", "<cmd>lua vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.ERROR })<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>dw", "<cmd>lua vim.diagnostic.setloclist({ severity = { min = vim.diagnostic.severity.WARN }})<CR>", opts)
 	vim.cmd([[ command! Format execute "lua vim.lsp.buf.format() { async = true }" ]])
 end
 
