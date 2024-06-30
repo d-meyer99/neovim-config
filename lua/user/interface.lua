@@ -26,7 +26,17 @@ lualine.setup({
     sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename" },
+        lualine_c = { {
+            "filename",
+            newfile_status = true,
+            path = 1,
+            symbols = {
+                modified = ': MODIFIED',
+                readonly = '󰌾: READONLY',
+                unnamed = '󰗧: UNNAMED',
+                newfile = ': NEW',
+            }
+        } },
         lualine_x = { "encoding", "progress" },
         lualine_y = { "os.date('%a %d %b %Y')" },
         lualine_z = { "os.date('%H:%M')" },
@@ -45,4 +55,11 @@ lualine.setup({
     extensions = {},
 })
 
-require("colorizer").setup()
+require("colorizer").setup({
+    default_options = {
+        RGB = true,
+        RRGGBB = true,
+        names = false,
+        RRGGBBAA = true,
+    },
+})

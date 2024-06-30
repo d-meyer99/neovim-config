@@ -40,6 +40,9 @@ nnoremap("<C-z>", "<C-q>")
 -- gu to go back
 nnoremap("gu", "<C-t>")
 
+-- <C-i> to increment
+keymap("", "<C-i>", "<C-a>", term_opts)
+
 -- <C-q> to kill terminal
 keymap("t", "<C-q>", [[<C-\><C-N>]], term_opts)
 
@@ -72,17 +75,8 @@ keymap(
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=ivy<CR>", opts)
 
--- NvimTree
-nnoremap("<F2>", ":NvimTreeToggle<CR>")
-
--- Template
-nnoremap("<leader>t", ":Template ")
-
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
 -- Alt f to format and save
 nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })
-
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

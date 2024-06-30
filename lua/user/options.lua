@@ -1,5 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 vim.g.rust_recommended_style = 0
 vim.g.rust_fold = 1
 
@@ -32,7 +30,7 @@ local options = {
     linebreak = true, -- Wrap at logical place.
     foldcolumn = "0",
     foldminlines = 1,
-    foldlevelstart = 2, -- On startup, open 2 outer levels of folds.
+    foldlevelstart = 10, -- On startup, open 2 outer levels of folds.
     foldnestmax = 3,
     foldenable = true,
     smartindent = true, -- Use smart autoindenting.
