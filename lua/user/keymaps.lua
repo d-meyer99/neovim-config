@@ -70,11 +70,11 @@ keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers(require('t
 keymap(
 	"n",
 	"gr",
-	"<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown())<CR>",
+	"<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy({layout_config = {preview_width = 0.30}}))<CR>",
 	opts
 )
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=ivy<CR>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope registers theme=ivy<CR>", opts)
 
 -- NvimTree
 nnoremap("<F2>", ":NvimTreeToggle<CR>")
@@ -113,3 +113,4 @@ nnoremap("<leader>wt", ":BufferLineGroupToggle Wiki<cr>")
 
 -- leader -> u for undo tree
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
+

@@ -38,7 +38,6 @@ local options = {
 	smartindent = true, -- Use smart autoindenting.
 	splitbelow = true, -- Force new splits to appear below current split.
 	splitright = true, -- Force new vertical splits to appear to the right.
-	clipboard = "unnamedplus", -- Use system clipboard for neovim.
 	scrolloff = 10, -- Start vertical scrolling 10 chars before edge.
 	sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
 	cursorline = true, -- Highlight line at cursor position.
@@ -85,7 +84,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.cmd([[
-		let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
+		let &shell = executable('pwsh') ? 'pwsh -nologo' : 'powershell'
 		let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
 		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'

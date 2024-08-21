@@ -51,7 +51,7 @@ else
 	require("user.template")
 	require("user.toggleterm")
 	require("user.gitsigns")
+	require("user.marks")
 	require("user.alpha")
 	require("user.ufo")
-	require("user.neoclip")
 end
