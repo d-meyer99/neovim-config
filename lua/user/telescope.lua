@@ -4,12 +4,12 @@ if not status_ok then
 end
 
 telescope.load_extension("media_files")
-telescope.load_extension("neoclip")
 
 local actions = require("telescope.actions")
 
 telescope.setup({
     defaults = {
+        file_ignore_patterns = { "node_modules" },
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "truncate = 3" },

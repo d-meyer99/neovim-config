@@ -24,9 +24,9 @@ local options = {
     }, -- Show trailing spaces as "~".
     list = true, -- Show whitespace.
     signcolumn = "yes", -- Always show sign column.
-    textwidth = 80, -- Set max text width to 85 characters.
-    colorcolumn = "81", -- Show column 86 as colored.
-    wrap = true, -- Wrap text.
+    textwidth = 80, -- Set max text width to 80 characters.
+    colorcolumn = "81", -- Show column 81 as colored.
+    wrap = false, -- Wrap text.
     linebreak = true, -- Wrap at logical place.
     foldcolumn = "0",
     foldminlines = 1,
@@ -36,7 +36,6 @@ local options = {
     smartindent = true, -- Use smart autoindenting.
     splitbelow = true, -- Force new splits to appear below current split.
     splitright = true, -- Force new vertical splits to appear to the right.
-    clipboard = "unnamedplus", -- Use system clipboard for neovim.
     scrolloff = 10, -- Start vertical scrolling 10 chars before edge.
     sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
     cursorline = true, -- Highlight line at cursor position.
@@ -54,6 +53,10 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 -- Do not automatically insert comments on new line after a comment.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
 
--- Set tab size to 2 in nix.
-vim.cmd("autocmd FileType nix setlocal shiftwidth=2")
-vim.cmd("autocmd FileType nix setlocal tabstop=2")
+-- Set tab size to 2 in nix, html, json, svelte and wiki files.
+vim.cmd("autocmd FileType nix,html,json,svelte,vimwiki,typescript,javascript setlocal shiftwidth=2")
+vim.cmd("autocmd FileType nix,html,json,svelte,vimwiki,typescript,javascript setlocal tabstop=2")
+
+vim.cmd("autocmd FileType html,svelte,vimwiki,typescript,javascript setlocal textwidth=0")
+
+vim.cmd("autocmd FileType vimwiki setlocal foldmethod=indent")

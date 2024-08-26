@@ -73,10 +73,12 @@ keymap(
     opts
 )
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=ivy<CR>", opts)
+keymap("n", "<leader>p", "<cmd>Telescope registers theme=ivy<CR>", opts)
 
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
 -- Alt f to format and save
 nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })
+
+vim.keymap.set("n", "<leader>-", function() require("yazi").yazi() end, { remap = false })
