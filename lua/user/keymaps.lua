@@ -114,3 +114,16 @@ nnoremap("<leader>wt", ":BufferLineGroupToggle Wiki<cr>")
 -- leader -> u for undo tree
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 
+vim.keymap.set("n", "<leader>ss", function ()
+	vim.cmd("70 vsplit")
+	vim.cmd("noswapfile hide enew")
+	vim.cmd("setlocal buftype=nofile")
+	vim.cmd("setlocal bufhidden=hide")
+	vim.cmd("file scratch")
+end ,opts)
+
+vim.keymap.set("n", "<leader>sc", function ()
+	vim.cmd("buffer scratch")
+	vim.cmd("bd")
+end ,opts)
+

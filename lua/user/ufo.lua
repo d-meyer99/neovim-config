@@ -41,6 +41,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*.wiki",
 	callback = function()
 		vim.cmd("UfoEnableFold")
+		local timer = vim.loop.new_timer()
+		local i = 0
+		timer:start(500, 500, vim.schedule_wrap(function()
+			vim.opt["foldmethod"] = "syntax"
+			if i > 10 then timer:close() end
+			i = i + 1
+		end))
 	end
 })
-
