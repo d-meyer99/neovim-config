@@ -25,7 +25,7 @@ local jsonls = add_opts(require("user.lsp.settings.jsonls"))
 lsp_config.jsonls.setup(jsonls)
 
 -- Tsserver
-lsp_config.tsserver.setup(default_opts)
+lsp_config.ts_ls.setup(default_opts)
 
 -- OmniSharp
 local omnisharp_opts = add_opts(require("user.lsp.settings.omnisharp"))

@@ -79,8 +79,11 @@ keymap("n", "<leader>p", "<cmd>Telescope registers theme=ivy<CR>", opts)
 -- NvimTree
 nnoremap("<F2>", ":NvimTreeToggle<CR>")
 
--- Template
-nnoremap("<leader>t", ":Template ")
+-- Tabs
+nnoremap("<leader>tt", "<C-W>s<C-W>T")
+nnoremap("<leader>tn", ":tabnext<cr>")
+nnoremap("<leader>tp", ":tabprevious<cr>")
+nnoremap("<leader>tq", ":tabclose<cr>")
 
 -- Ufo
 nnoremap("zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
@@ -115,7 +118,7 @@ nnoremap("<leader>wt", ":BufferLineGroupToggle Wiki<cr>")
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 
 vim.keymap.set("n", "<leader>ss", function ()
-	vim.cmd("70 vsplit")
+	vim.cmd("100 vsplit")
 	vim.cmd("noswapfile hide enew")
 	vim.cmd("setlocal buftype=nofile")
 	vim.cmd("setlocal bufhidden=hide")

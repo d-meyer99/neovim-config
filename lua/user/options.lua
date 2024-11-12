@@ -5,49 +5,49 @@ vim.g.rust_fold = 1
 
 -- Options
 local options = {
-	encoding = "utf-8", -- Use UTF-8 encoding.
-	number = true,      -- Show line numbers.
-	relativenumber = true, -- Show line numbers relative to current line.
-	ignorecase = true,  -- Ignore case in search patterns.
-	smartcase = true,   -- Don"t ignore case if search contains uppercase.
-	swapfile = false,   -- Disable swapfiles.
-	backspace = "2",    -- Allow backspace over autoindent, eol and start.
-	tabstop = 4,        -- Number of spaces that a tab uses.
-	softtabstop = 4,    -- Number of spaces a tab uses when editing.
-	showtabline = 2,    -- Always show tabline.
-	termguicolors = true, -- Enable 24-bit RGB in terminal.
-	shiftwidth = 4,     -- Number of spaces to use for auto indent.
-	expandtab = false,  -- Do not replace tabs with spaces.
-	listchars = {
-		-- Show whitespace configuration list.
-		space = "∙", -- Show spaces as "·".
-		tab = " ", -- Show tabs as "   ".
-		trail = "~",
-	}, -- Show trailing spaces as "~".
-	list = true, -- Show whitespace.
-	signcolumn = "yes", -- Always show sign column.
-	textwidth = 140, -- Set max text width to 140 characters.
-	colorcolumn = "141", -- Show column 141 as colored.
-	wrap = false, -- Don't wrap text.
-	linebreak = true, -- Wrap at logical place.
-	foldcolumn = "0",
-	foldminlines = 2,
-	foldlevelstart = 99, -- On startup, open 2 outer levels of folds.
-	foldnestmax = 3,
-	foldenable = true,
-	smartindent = true, -- Use smart autoindenting.
-	splitbelow = true, -- Force new splits to appear below current split.
-	splitright = true, -- Force new vertical splits to appear to the right.
-	scrolloff = 10,  -- Start vertical scrolling 10 chars before edge.
-	sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
-	cursorline = true, -- Highlight line at cursor position.
-	cursorlineopt = "line",
-	fixendofline = false
+  encoding = "utf-8",   -- Use UTF-8 encoding.
+  number = true,        -- Show line numbers.
+  relativenumber = true, -- Show line numbers relative to current line.
+  ignorecase = true,    -- Ignore case in search patterns.
+  smartcase = true,     -- Don"t ignore case if search contains uppercase.
+  swapfile = false,     -- Disable swapfiles.
+  backspace = "2",      -- Allow backspace over autoindent, eol and start.
+  tabstop = 4,          -- Number of spaces that a tab uses.
+  softtabstop = 4,      -- Number of spaces a tab uses when editing.
+  showtabline = 2,      -- Always show tabline.
+  termguicolors = true, -- Enable 24-bit RGB in terminal.
+  shiftwidth = 4,       -- Number of spaces to use for auto indent.
+  expandtab = false,    -- Do not replace tabs with spaces.
+  listchars = {
+    -- Show whitespace configuration list.
+    space = "∙", -- Show spaces as "·".
+    tab = " ", -- Show tabs as "   ".
+    trail = "~",
+  }, -- Show trailing spaces as "~".
+  list = true, -- Show whitespace.
+  signcolumn = "yes", -- Always show sign column.
+  textwidth = 140, -- Set max text width to 140 characters.
+  colorcolumn = "141", -- Show column 141 as colored.
+  wrap = false, -- Don't wrap text.
+  linebreak = true, -- Wrap at logical place.
+  foldcolumn = "0",
+  foldminlines = 2,
+  foldlevelstart = 99, -- On startup, open 2 outer levels of folds.
+  foldnestmax = 3,
+  foldenable = true,
+  smartindent = true, -- Use smart autoindenting.
+  splitbelow = true, -- Force new splits to appear below current split.
+  splitright = true, -- Force new vertical splits to appear to the right.
+  scrolloff = 10,    -- Start vertical scrolling 10 chars before edge.
+  sidescrolloff = 8, -- Start horizontal scrolling 8 chars before edge.
+  cursorline = true, -- Highlight line at cursor position.
+  cursorlineopt = "line",
+  fixendofline = false
 }
 
 -- Loop through and set options.
 for k, v in pairs(options) do
-	vim.opt[k] = v
+  vim.opt[k] = v
 end
 
 local typescriptExpandTab = false;
@@ -59,51 +59,51 @@ vim.cmd("set ww+=h,l")      -- Allow h and l to wrap on lines.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
 
 local function setTabOptions(opts)
-	vim.opt["expandtab"] = opts.expandTab;
-	vim.opt["tabstop"] = opts.tabStop;
-	vim.opt["shiftwidth"] = opts.shiftWidth;
+  vim.opt["expandtab"] = opts.expandTab;
+  vim.opt["tabstop"] = opts.tabStop;
+  vim.opt["shiftwidth"] = opts.shiftWidth;
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*",
-	callback = function()
-		setTabOptions({
-			expandTab = false,
-			tabStop = 4,
-			shiftWidth = 4
-		})
-	end
+  pattern = "*",
+  callback = function()
+    setTabOptions({
+      expandTab = false,
+      tabStop = 4,
+      shiftWidth = 4
+    })
+  end
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*.bicep,*.json,*.html,*.scss,*.js,*.yml,*.yaml,*.wiki",
-	callback = function()
-		setTabOptions({
-			expandTab = true,
-			tabStop = 2,
-			shiftWidth = 2
-		})
-	end
+  pattern = "*.bicep,*.yml,*.yaml,*.wiki,*.lua",
+  callback = function()
+    setTabOptions({
+      expandTab = true,
+      tabStop = 2,
+      shiftWidth = 2
+    })
+  end
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*.ts",
-	callback = function()
-		setTabOptions({
-			expandTab = typescriptExpandTab,
-			tabStop = 2,
-			shiftWidth = 2
-		})
-	end
+  pattern = "*.ts,*.json,*.html,*.scss,*.js",
+  callback = function()
+    setTabOptions({
+      expandTab = typescriptExpandTab,
+      tabStop = 2,
+      shiftWidth = 2
+    })
+  end
 })
 
 vim.api.nvim_create_user_command('SetTsExpandTab', function() typescriptExpandTab = true; end, {})
 vim.api.nvim_create_user_command('SetTsNoExpandTab', function() typescriptExpandTab = false; end, {})
 
 vim.cmd([[
-		let &shell = executable('pwsh') ? 'pwsh -nologo' : 'powershell'
-		let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		set shellquote= shellxquote=
+  let &shell = executable('pwsh') ? 'pwsh -nologo' : 'powershell'
+  let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+  let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  set shellquote= shellxquote=
 ]])
