@@ -70,7 +70,7 @@ keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers(require('t
 keymap(
 	"n",
 	"gr",
-	"<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy({layout_config = {preview_width = 0.30}}))<CR>",
+	"<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy())<CR>",
 	opts
 )
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
@@ -129,4 +129,7 @@ vim.keymap.set("n", "<leader>sc", function ()
 	vim.cmd("buffer scratch")
 	vim.cmd("bd")
 end ,opts)
+
+nnoremap("dgc", ":diffget //2<cr>")
+nnoremap("dgo", ":diffget //3<cr>")
 
