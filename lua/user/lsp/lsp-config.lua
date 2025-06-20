@@ -22,7 +22,7 @@ local jsonls = add_opts(require("user.lsp.settings.jsonls"))
 lsp_config.jsonls.setup(jsonls)
 
 -- Tsserver
-lsp_config.tsserver.setup(default_opts)
+lsp_config.ts_ls.setup(default_opts)
 
 -- HTML
 local html_opts = add_opts({
@@ -43,6 +43,12 @@ lsp_config.nil_ls.setup(default_opts)
 
 -- Svelte
 lsp_config.svelte.setup(default_opts)
+
+-- Go
+lsp_config.gopls.setup(default_opts)
+
+-- Docker
+-- lsp_config.dockerls.setup(default_opts)
 
 
 -- SQLLS

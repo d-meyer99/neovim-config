@@ -10,7 +10,6 @@ configs.setup({
     -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
         "c",
-        "lua",
         "vim",
         "rust",
         "toml",

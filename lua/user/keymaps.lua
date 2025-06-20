@@ -38,7 +38,8 @@ nnoremap("<S-q>", ":TSBufDisable all<cr>:bp|bd #<CR>")
 nnoremap("<C-z>", "<C-q>")
 
 -- gu to go back
-nnoremap("gu", "<C-t>")
+nnoremap("<leader>[", "<C-o>")
+nnoremap("<leader>]", "<C-i>")
 
 -- <C-i> to increment
 keymap("", "<C-i>", "<C-a>", term_opts)
@@ -55,30 +56,37 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Telescope keymaps
 keymap(
     "n",
-    "<leader>f",
+    "<leader>ff",
     "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy())<CR>",
     opts
 )
 keymap(
     "n",
-    "<leader>gf",
+    "<leader>fg",
     "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy())<CR>",
     opts
 )
-keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy())<CR>", opts)
+keymap(
+    "n",
+    "<leader>fb",
+    "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy())<CR>",
+    opts
+)
 keymap(
     "n",
     "gr",
     "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown())<CR>",
     opts
 )
-keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>ft", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope registers theme=ivy<CR>", opts)
 
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
--- Alt f to format and save
-nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
-vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })
+-- Space l to format and save
+nnoremap("<leader>l", ":lua vim.lsp.buf.format()<cr>")
+vim.keymap.set("v", "<leader>l", vim.lsp.buf.format, { remap = false })
 
-vim.keymap.set("n", "<leader>-", function() require("yazi").yazi() end, { remap = false })
+vim.keymap.set("n", "<leader>-", function()
+    require("yazi").yazi()
+end, { remap = false })

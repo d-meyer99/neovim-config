@@ -93,7 +93,8 @@ packer.startup(function(use)
 
     -- Rust
     use("mfussenegger/nvim-dap")
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+    use("leoluz/nvim-dap-go")
 
     -- Tint
     use("levouh/tint.nvim")
@@ -109,7 +110,17 @@ packer.startup(function(use)
 
     use({ "klen/nvim-test" })
 
-    use({ "mikavilpas/yazi.nvim"})
+    use({ "mikavilpas/yazi.nvim" })
+
+    use({ "chentoast/marks.nvim" })
+
+    use({
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { "nvim-lua/plenary.nvim" },
+    })
+
+    use("kylechui/nvim-surround")
 
     -- Auto set config after cloning packer
     -- Keep this after all plugins
