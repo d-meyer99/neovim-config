@@ -84,8 +84,21 @@ keymap("n", "<leader>p", "<cmd>Telescope registers theme=ivy<CR>", opts)
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
 -- Space l to format and save
-nnoremap("<leader>l", ":lua vim.lsp.buf.format()<cr>")
-vim.keymap.set("v", "<leader>l", vim.lsp.buf.format, { remap = false })
+vim.keymap.set("n", "<leader>l", function()
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name ~= "texlab"
+    end,
+  })
+end)
+
+vim.keymap.set("v", "<leader>l", function()
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name ~= "texlab"
+    end,
+  })
+end, { remap = false })
 
 vim.keymap.set("n", "<leader>-", function()
     require("yazi").yazi()

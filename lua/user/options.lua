@@ -60,10 +60,10 @@ vim.cmd("set ww+=h,l") -- Allow h and l to wrap on lines.
 vim.cmd("autocmd FileType * setlocal formatoptions-=cro")
 
 -- Set tab size to 2 in nix, html, json, svelte and wiki files.
-vim.cmd("autocmd FileType nix,html,json,svelte,vimwiki,typescript,javascript setlocal shiftwidth=2")
-vim.cmd("autocmd FileType nix,html,json,svelte,vimwiki,typescript,javascript setlocal tabstop=2")
+vim.cmd("autocmd FileType nix,html,json,svelte,vimwiki,typescript,javascript,tex setlocal shiftwidth=2")
+vim.cmd("autocmd FileType nix,html,json,svelte,vimwiki,typescript,javascript,tex setlocal tabstop=2")
 
-vim.cmd("autocmd FileType html,svelte,vimwiki,typescript,javascript,tex setlocal textwidth=0")
+vim.cmd("autocmd FileType html,svelte,vimwiki,typescript,javascript setlocal textwidth=0")
 vim.cmd("autocmd FileType go setlocal noexpandtab")
 
 vim.cmd("autocmd FileType vimwiki setlocal foldmethod=indent")

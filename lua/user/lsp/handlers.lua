@@ -105,6 +105,10 @@ M.on_attach = function(client, bufnr)
             end,
         })
     end
+    if client.name == "texlab" then
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
+    end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)
 end

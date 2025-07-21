@@ -47,6 +47,10 @@ lsp_config.svelte.setup(default_opts)
 -- Go
 lsp_config.gopls.setup(default_opts)
 
+-- Latex
+local texlab_opts = add_opts(require("user.lsp.settings.texlab"))
+lsp_config.texlab.setup(texlab_opts)
+
 -- Docker
 -- lsp_config.dockerls.setup(default_opts)
 
