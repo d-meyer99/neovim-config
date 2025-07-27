@@ -68,7 +68,11 @@ packer.startup(function(use)
     use({
         "neovim/nvim-lspconfig", -- LSP
     })
-    use("jose-elias-alvarez/null-ls.nvim")
+
+    use({
+        "nvimtools/none-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    })
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
