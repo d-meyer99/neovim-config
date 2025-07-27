@@ -6,8 +6,9 @@ end
 local handlers = require("user.lsp.handlers")
 
 local function add_opts(opts)
-    opts["on_attach"] = handlers.on_attach
-    opts["capabilities"] = handlers.capabilities
+    opts.on_attach = handlers.on_attach
+    opts.capabilities = handlers.capabilities
+    opts.handlers = handlers.handlers()
     return opts
 end
 
