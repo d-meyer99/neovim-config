@@ -3,7 +3,9 @@ if not status_ok then
     return
 end
 
-require("nvim-treesitter.install").prefer_git = false
+local ts_install = require("nvim-treesitter.install");
+ts_install.prefer_git = false
+
 require("rainbow-delimiters.setup").setup()
 
 configs.setup({
