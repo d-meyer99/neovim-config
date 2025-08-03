@@ -116,5 +116,10 @@ require("lazy").setup({
         version = "*", -- Pin Neorg to the latest stable release
         config = true,
     },
-    { "Vigemus/iron.nvim" }
+    { "Vigemus/iron.nvim" },
+    {
+        'stevearc/oil.nvim',
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+        lazy = false,
+    }
 })
