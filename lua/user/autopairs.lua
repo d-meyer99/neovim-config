@@ -1,9 +1,11 @@
-local status_ok, npairs = pcall(require, "nvim-autopairs")
+local plugin_name = "nvim-autopairs"
+local status_ok, plugin = pcall(require, plugin_name)
 if not status_ok then
+    print(string.format("Failed to load %s", plugin_name))
     return
 end
 
-npairs.setup({
+plugin.setup({
     check_ts = true,
     ts_config = {
         lua = { "string", "source" },

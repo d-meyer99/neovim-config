@@ -1,6 +1,8 @@
-local status_ok, autotag = pcall(require, "nvim-ts-autotag")
+local plugin_name =  "nvim-ts-autotag"
+local status_ok, plugin = pcall(require, plugin_name)
 if not status_ok then
+    print(string.format("Failed to load %s", plugin_name))
     return
 end
 
-autotag.setup()
+plugin.setup()
