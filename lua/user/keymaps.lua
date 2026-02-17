@@ -28,6 +28,10 @@ nnoremap("<C-Down>", ":resize +2<CR>")
 nnoremap("<C-Left>", ":vertical resize -2<CR>")
 nnoremap("<C-Right>", ":vertical resize +2<CR>")
 
+-- gu to go back
+nnoremap("<leader>[", "<C-o>")
+nnoremap("<leader>]", "<C-i>")
+
 -- Close split with <C-q>
 nnoremap("<C-q>", "<C-w>q")
 
@@ -85,24 +89,9 @@ nnoremap("<leader>tn", ":tabnext<cr>")
 nnoremap("<leader>tp", ":tabprevious<cr>")
 nnoremap("<leader>tq", ":tabclose<cr>")
 
--- Ufo
-nnoremap("zR", "<cmd>lua require('ufo').openAllFolds()<cr>")
-nnoremap("zM", "<cmd>lua require('ufo').closeAllFolds()<cr>")
-vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
-vim.keymap.set("n", "K", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		-- choose one of coc.nvim and nvim lsp
-		vim.lsp.buf.hover()
-	end
-end, opts)
-
-vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-
--- Alt f to format and save
-nnoremap("<M-f>", ":lua vim.lsp.buf.format()<cr>")
-vim.keymap.set("v", "<M-f>", vim.lsp.buf.format, { remap = false })
+-- space l
+nnoremap("<leader>l", ":lua vim.lsp.buf.format()<cr>")
+vim.keymap.set("v", "<leader>l", vim.lsp.buf.format, { remap = false })
 
 -- Alt + h,j,k,l to scroll
 nnoremap("<M-h>", "2zh")
