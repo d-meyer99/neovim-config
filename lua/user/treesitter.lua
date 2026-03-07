@@ -29,7 +29,18 @@ configs.setup({
         disable = { "" },
         additional_vim_regex_highlighting = { "org" },
     },
-    indent = { enable = true }
+    indent = { enable = true },
+    inject = { enable = true },
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ["am"] = "@macro.inner",
+                ["aM"] = "@macro.outer"
+            }
+        }
+    }
 })
 
 vim.wo.foldmethod = 'expr'

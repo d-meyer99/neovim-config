@@ -8,12 +8,15 @@ end
 plugin.setup {
     load = {
         ["core.defaults"] = {},
-        ["core.norg.concealer"] = {},
-        ["core.norg.dirman"] = {
+        ["core.concealer"] = {},
+        ["core.neorgcmd"] = {},
+        ["core.dirman"] = {
             config = {
                 workspaces = {
-                    my_notes = "~/notes",
+                    notes = vim.fn.expand("~/notes"),
+                    harc = vim.fn.expand("~/Harc/Notes")
                 },
+                default_workspace = "notes"
             },
         },
     },
