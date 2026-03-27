@@ -114,7 +114,28 @@ require("lazy").setup({
         "nvim-neorg/neorg",
         lazy = false,  -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
         version = "*", -- Pin Neorg to the latest stable release
-        config = true,
+        config = function()
+            local plugin_name = "neorg"
+            local status_ok, plugin = pcall(require, plugin_name)
+            if not status_ok then
+                print(string.format("Failed to load %s", plugin_name))
+                return
+            end
+            plugin.setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                    ["core.dirman"] = {
+                        config = {
+                            workspaces = {
+                                notes = "~//.neorg/default",
+                                haskell = "~/.neorg/haskell"
+                            },
+                        },
+                    },
+                },
+            }
+        end
     },
     { "Vigemus/iron.nvim" },
     {

@@ -11,6 +11,12 @@ plugin.setup {
             haskell = {
                 command = { "ghci" },
             },
+            lhaskell = {
+                command = { "ghci" },
+            },
+            norg = {
+                command = { "ghci" }
+            }
         },
         repl_open_cmd = "horizontal botright 20 split",
     },
