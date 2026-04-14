@@ -1,1 +1,0 @@
--- sqlfluff:indentation:indent_unit:tab

@@ -9,11 +9,7 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
-
-local check_backspace = function()
-    local col = vim.fn.col(".") - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
+require("user.lua_snip.rust")
 
 local kind_icons = {
     Text = "󰊄",
@@ -63,12 +59,10 @@ cmp.setup({
         }),
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<C-n>"] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ["<C-n>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-l>"] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
-            elseif check_backspace() then
-                fallback()
             else
                 fallback()
             end
@@ -76,7 +70,7 @@ cmp.setup({
             "i",
             "s",
         }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<C-h>"] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else
@@ -104,10 +98,9 @@ cmp.setup({
     },
     sources = {
         { name = "nvim_lsp" },
-        { name = "orgmode" },
         { name = "luasnip" },
-        { name = "buffer" },
         { name = "path" },
+        { name = "buffer" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

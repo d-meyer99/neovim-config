@@ -56,10 +56,5 @@ lualine.setup({
 })
 
 require("colorizer").setup({
-    default_options = {
-        RGB = true,
-        RRGGBB = true,
-        names = false,
-        RRGGBBAA = true,
-    },
+    options = { parsers = { css = true } },
 })

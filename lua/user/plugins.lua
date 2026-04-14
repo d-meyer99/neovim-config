@@ -18,7 +18,11 @@ require("lazy").setup({
 
     -- UI & Themes
     { "loctvl842/monokai-pro.nvim" },
-    { "norcalli/nvim-colorizer.lua" },
+    {
+        "catgoose/nvim-colorizer.lua",
+        event = "BufReadPre",
+        opts = {},
+    },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "kyazdani42/nvim-web-devicons" }
@@ -78,18 +82,14 @@ require("lazy").setup({
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        build = function()
-            require("nvim-treesitter.install").update({ with_sync = true })
-        end,
+        lazy = false,
+        build = ':TSUpdate',
     },
     { "HiPhish/rainbow-delimiters.nvim" },
     { "windwp/nvim-ts-autotag" },
 
     -- File Explorer
     { "prichrd/netrw.nvim" },
-
-    -- Templates
-    { "glepnir/template.nvim" },
 
     -- Rust
     { "mfussenegger/nvim-dap" },
@@ -142,5 +142,15 @@ require("lazy").setup({
         'stevearc/oil.nvim',
         dependencies = { { "echasnovski/mini.icons", opts = {} } },
         lazy = false,
+    },
+    { "nanotee/sqls.nvim" },
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter"
+        }
     }
 })

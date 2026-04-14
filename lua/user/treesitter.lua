@@ -1,47 +1,18 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+local status_ok, treesitter = pcall(require, "nvim-treesitter")
 if not status_ok then
     return
 end
 
-local ts_install = require("nvim-treesitter.install");
-ts_install.prefer_git = false
-
 require("rainbow-delimiters.setup").setup()
 
-configs.setup({
-    -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = {
-        "c",
-        "vim",
-        "rust",
-        "toml",
-        "html",
-        "svelte",
-        "javascript",
-        "typescript",
-        "css",
-    },
-    -- install languages synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-    ignore_install = { "help" },
-    highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = { "" },
-        additional_vim_regex_highlighting = { "org" },
-    },
-    indent = { enable = true },
-    inject = { enable = true },
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-                ["am"] = "@macro.inner",
-                ["aM"] = "@macro.outer"
-            }
-        }
-    }
+treesitter.install({
+    "c",
+    "vim",
+    "rust",
+    "toml",
+    "html",
+    "svelte",
+    "javascript",
+    "typescript",
+    "css",
 })
-
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

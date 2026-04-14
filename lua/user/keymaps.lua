@@ -108,3 +108,28 @@ nnoremap("<S-M-K>", ":m .-2<cr>==")
 
 keymap("v", "<S-K>", ":m '<-2<cr>gv=gv", { remap = false })
 keymap("v", "<S-J>", ":m '<+1<cr>gv=gv", { remap = false })
+
+-- neotest
+local neotest = require("neotest")
+nnoremap("<leader>tr", function()
+    neotest.run.run();
+end)
+
+nnoremap("<leader>tf", function()
+    neotest.run.run(vim.fn.expand("%"));
+end)
+
+nnoremap("<leader>tt", function()
+    neotest.summary.toggle();
+end)
+
+nnoremap("<leader>tv", function()
+    neotest.output.open({
+        short = true,
+        enter = true,
+    });
+end)
+
+nnoremap("<leader>to", function()
+    neotest.output_panel.toggle();
+end)
