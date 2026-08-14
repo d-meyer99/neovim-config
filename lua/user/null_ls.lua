@@ -12,7 +12,7 @@ none_ls.setup({
         formatting.prettier,
         formatting.alejandra,
         formatting.sqlfluff.with({
-            extra_args = { "--dialect", "sqlite" },
+            extra_args = { "--dialect", "postgresql" },
         }),
         formatting.beautysh.with({
             extra_args = { "-t" },

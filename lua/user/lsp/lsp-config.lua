@@ -1,4 +1,4 @@
-local status_ok, lspconfig = pcall(require, "lspconfig")
+local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then
     return
 end
@@ -6,8 +6,8 @@ end
 local handlers = require("user.lsp.handlers")
 
 local function setup_language(name, opts)
-  vim.lsp.config[name] = opts;
-  vim.lsp.enable(name);
+    vim.lsp.config[name] = opts;
+    vim.lsp.enable(name);
 end
 
 local function add_opts(opts)
@@ -58,7 +58,34 @@ setup_language("gopls", default_opts)
 local texlab_opts = add_opts(require("user.lsp.settings.texlab"))
 setup_language("texlab", texlab_opts)
 
-setup_language("sqls", default_opts)
+setup_language("sqls", {
+    capabilities = default_opts.capabilities,
+    handlers = default_opts.handlers,
+    settings = {
+        sqls = {
+            connections = {
+                {
+                    driver = 'postgresql',
+                    dataSourceName =
+                    'host=localhost port=5432 user=workout password=dev dbname=workout_dev sslmode=disable'
+                },
+            },
+        },
+    },
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == 'sqls' then
+            local bufnr = args.buf
+            local opts = { noremap = true, silent = true }
+            default_opts.on_attach(client, bufnr)
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>se", "<cmd>SqlsExecuteQuery<CR>", opts)
+            vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>se", "<cmd>SqlsExecuteQuery<CR>", opts)
+        end
+    end,
+})
 
 setup_language("emmet_ls", add_opts({
     init_options = {
